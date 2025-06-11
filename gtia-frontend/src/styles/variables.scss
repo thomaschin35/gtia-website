@@ -1,0 +1,38 @@
+// Override Bootstrap variables
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+// Colors
+$primary: #0056b3;  // Brand primary color
+$secondary: #f8f9fa;
+$dark: #14213d;     // Dark blue
+$light: #ffffff;
+$info: #e6f7ff;
+$success: #28a745;
+$warning: #ffc107;
+$danger: #dc3545;
+
+// Typography
+$font-family-base: 'Outfit', sans-serif;
+$headings-font-family: 'Outfit', sans-serif;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$headings-font-weight: 700;
+
+// Spacing
+$spacer: 1rem;
+
+// Border radius
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+$border-radius-sm: 0.25rem;
+
+// Custom variables for the application
+$hero-bg-color: rgba(230, 247, 255, 0.5);
+$navbar-dark-bg: $dark;
+$footer-bg: $dark;
+$footer-color: $light;
+
+// Import Bootstrap to enable variable overrides
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins"; 
