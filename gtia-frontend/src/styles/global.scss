@@ -79,26 +79,31 @@ main {
 
 
 .hero-button {
-  border-radius: $border-radius-lg;
+  border-radius: 60px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: white;
   border: 1px solid #dee2e6;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
+  color: $primary;
+  font-size: 48px;
+  // font-size: 1.5rem;
+  // font-weight: 600;
   text-align: left;
   padding-left: 2rem !important;
   max-width: 400px;
-  margin: 0 auto;
+  padding-top: -2rem;
+  // margin: 0 auto;
   
 
 }
 
 .hero-button-letter {
   font-weight: 800;
-  color: $primary;
-  font-size: 2rem;
-  margin-right: 0.5rem;
+  color: $gt-gold;
+  font-size: 48px;
+  // margin-right: 0.5rem;
 }
+
 
 // Event card styles
 .event-card {

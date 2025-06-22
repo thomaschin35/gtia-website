@@ -1,15 +1,31 @@
 // Override Bootstrap variables
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-// Colors
-$primary: #0056b3;  // Brand primary color
-$secondary: #f8f9fa;
-$dark: #14213d;     // Dark blue
-$light: #ffffff;
-$info: #e6f7ff;
-$success: #28a745;
-$warning: #ffc107;
-$danger: #dc3545;
+// Custom GTIA colors from Figma
+$dark-blue:           #01324B;
+$gold:                #CBAC4D;
+$light-blue:          #93D5F6;
+$lighter-blue:        #CEEFFF;
+$light-yellow:        #FFEFBF;
+$light-green:         #ACD9B3;
+$light-grey:          #E6E3E7;
+$white:               #FBFEFF;
+$black:               #252829;
+$text-grey:           #A9B1B5;
+$orange:              #FF8A6D;
+$purple:              #585684;
+$gt-gold:             #B3A369;
+$lightest-blue:       #F1FAFF;
+$second-lightest-blue:#E4F6FF;
+
+// Bootstrap color mapping
+$primary: $dark-blue;
+$secondary: $text-grey;
+$success: $light-green;
+$info: $light-blue;
+$warning: $orange;
+$danger: #dc3545; // Keeping a distinct red
+$light: $white;
+$dark: $black;
 
 // Typography
 $font-family-base: 'Outfit', sans-serif;
