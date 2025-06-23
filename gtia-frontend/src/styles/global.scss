@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-@import './variables.scss';
-@import 'bootstrap/scss/bootstrap';
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import "./variables.scss";
+@import "bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 // General styles
-html, body, #root {
-  font-family: 'Outfit', sans-serif !important;
+html,
+body,
+#root {
+  font-family: "Outfit", sans-serif !important;
 }
 
 body {
@@ -13,12 +15,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f8f9fa;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 // Force Outfit font everywhere
 * {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: "Outfit", sans-serif !important;
 }
 
 main {
@@ -34,7 +36,7 @@ main {
 // Hero section styles
 .hero-section {
   background-color: $hero-bg-color;
-//   background-image: url('../assets/images/map.png');
+  //   background-image: url('../assets/images/map.png');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -45,14 +47,12 @@ main {
   overflow: hidden;
 }
 
-
-
 .hero-quote-top {
   position: relative;
   max-width: 100%;
   display: flex;
   justify-content: flex-start;
-//   width: 100%;
+  //   width: 100%;
   z-index: 10;
 }
 
@@ -70,17 +70,16 @@ main {
   color: $dark;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 0.75rem 1.5rem;
-  border-radius: $border-radius;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  border-radius: 49px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   font-size: 1.75rem;
   font-weight: 500;
   min-width: 40%;
 }
 
-
 .hero-button {
   border-radius: 60px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
   border: 1px solid #dee2e6;
   font-weight: 800;
@@ -93,8 +92,6 @@ main {
   max-width: 400px;
   padding-top: -2rem;
   // margin: 0 auto;
-  
-
 }
 
 .hero-button-letter {
@@ -104,18 +101,93 @@ main {
   // margin-right: 0.5rem;
 }
 
+.learn-more-button {
+  color: $purple;
+  font-size: $h1-font-size;
+}
+
+.testimonials-section {
+  width: 100%;
+  margin: 0 auto;
+}
+
+// Testimonials Carousel
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: none;
+  height: auto;
+}
+
+.testimonial-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.testimonial-avatar {
+  display: flex;
+  width: 8.8125rem;
+  height: 8.8125rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  line-height: 120%; /* 1.8rem */
+  text-align: right;
+  color: $black;
+}
+
+.testimonial-text-content {
+  font-size: $font-size-base;
+  line-height: 140%;
+}
+
+.testimonial-name {
+  font-size: $h2-font-size;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 120%; /* 1.8rem */
+  text-align: right;
+  color: $gt-gold
+}
+
+// Remove old slide styles
+.number-slide1,
+.number-slide2,
+.number-slide3,
+.number-slide4,
+.number-slide5,
+.number-slide6 {
+  background: none;
+}
 
 // Event card styles
 .event-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: $border-radius-lg;
   overflow: hidden;
-  
+
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -130,4 +202,4 @@ footer {
   background-color: $footer-bg;
   color: $footer-color;
   padding: 3rem 0 2rem;
-} 
+}

@@ -34,6 +34,29 @@ $font-weight-normal: 400;
 $font-weight-bold: 700;
 $headings-font-weight: 700;
 
+// --- Text Styles from Figma ---
+
+// Base Typography (Paragraph: 16px/140)
+$font-size-base: 1rem; // 16px
+$line-height-base: 1.4;
+
+// Headings
+$h1-font-size: 32px; // H1: 32/120
+$h2-font-size: 24px; // H2: 24/120
+$headings-line-height: 1.2;
+
+// Custom Text Styles
+$small-font-size: 12px; // Small_Text: 12/140
+$title-font-size: 48px; // Title: 48/Auto
+$big-h1-font-size: 40px; // Big H1: 40/Auto
+$title-line-height: normal; // 'Auto' in Figma
+
+// Button Text Styles
+$button-font-size: 16px; // Button: 16/140
+$button-line-height: 1.4;
+$button-final-font-size: 20px; // Button_FINAL: 20/140
+$button-final-line-height: 1.4;
+
 // Spacing
 $spacer: 1rem;
 

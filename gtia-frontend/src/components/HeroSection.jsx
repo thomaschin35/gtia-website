@@ -43,12 +43,12 @@ const HeroSection = () => {
             </div>
 
             <div className="d-flex justify-content-center mt-4 gap-3">
-              <Button variant="outline-dark" className="px-4 py-2">
+              <a className="px-4 py-2">
                 <i className="bi bi-book me-2"></i> Guide
-              </Button>
-              <Button variant="outline-primary" className="px-4 py-2">
+              </a>
+              <a className="px-4 py-2">
                 <i className="bi bi-discord me-2"></i> Discord
-              </Button>
+              </a>
             </div>
           </Col>
         </Row>
@@ -57,7 +57,7 @@ const HeroSection = () => {
           <h2 className="quote-text">... and the world to Georgia Tech."</h2>
         </div>
         <div className="text-center mt-5">
-          <a href="#upcoming-events" className="btn btn-link">
+          <a href="#upcoming-events" className="btn btn-link learn-more-button"  >
             Learn more <i className="bi bi-arrow-down"></i>
           </a>
         </div>
