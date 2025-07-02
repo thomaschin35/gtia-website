@@ -2,7 +2,9 @@ import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import TestimonialCard from "./TestimonialCard";
-import nemoAvatar from "./nemo.png";
+
+
+const nemoAvatar = "/assets/images/nemo.png";
 
 const testimonialsData = [
   {
