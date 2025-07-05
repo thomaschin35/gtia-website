@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import EventCard from "./EventCard";
+import { Container } from "react-bootstrap";
+import EventCarousel from "./EventCarousel";
 
 const UpcomingEvents = () => {
   // Sample event data, would be replaced with actual data from an API
@@ -29,21 +29,10 @@ const UpcomingEvents = () => {
   ];
 
   return (
-    <section id="upcoming-events" className="py-5">
+    <section id="upcoming-events" className="mt-5">
       <Container>
         <div className="text-center mb-5 section-title-text">Upcoming Events</div>
-        <Row className="g-4">
-          {events.map((event) => (
-            <Col key={event.id} md={6} lg={4}>
-              <EventCard
-                title={event.title}
-                date={event.date}
-                image={event.image}
-                description={event.description}
-              />
-            </Col>
-          ))}
-        </Row>
+        <EventCarousel />
       </Container>
     </section>
   );
