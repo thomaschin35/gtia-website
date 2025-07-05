@@ -7,8 +7,8 @@ const HeroSection = () => {
       <Container fluid className="position-relative">
         <div className="hero-quote-container">
           <div className="hero-quote-top">
-            <h2 className="quote-text">
-              "Bringing Georgia Tech to the world..."
+            <h2 className="quote-text quote-background-left">
+              "Bringing <span className="quote-gold-letter">Georgia Tech</span> to the world..."
             </h2>
           </div>
         </div>
@@ -19,9 +19,7 @@ const HeroSection = () => {
               <Row className="justify-content-center g-3">
                 <Col xs={9} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
-                    {/* <span className="hero-button-letter"> */}
                       <span className="hero-button-letter">G</span>eorgia
-                    {/* </span> */}
                   </div>
                 </Col>
                 <Col xs={9} className="d-flex justify-content-center">
@@ -42,23 +40,31 @@ const HeroSection = () => {
               </Row>
             </div>
 
-            <div className="d-flex justify-content-center mt-4 gap-3">
-              <a className="px-4 py-2">
-                <i className="bi bi-book me-2"></i> Guide
-              </a>
-              <a className="px-4 py-2">
-                <i className="bi bi-discord me-2"></i> Discord
-              </a>
+            <div className="d-flex justify-content-center mt-4 gap-5">
+             <div className="d-flex align-items-center px-1">
+                <img src="/assets/images/guide-icon.svg"></img>
+                <a className="px-2">
+                  Guide
+                </a>
+              </div>
+              <div className="d-flex align-items-center px-1">
+                <img src="/assets/images/discord-icon.svg"></img>
+                <a className="px-2">
+                  Discord
+                </a>
+              </div>
             </div>
           </Col>
         </Row>
 
         <div className="hero-quote-bottom text-end">
-          <h2 className="quote-text">... and the world to Georgia Tech."</h2>
+          <h2 className="quote-text quote-background-right">
+            ... and the <span className="quote-gold-letter">world</span> to Georgia Tech."
+          </h2>
         </div>
         <div className="text-center mt-5">
           <a href="#upcoming-events" className="btn btn-link learn-more-button"  >
-            Learn more <i className="bi bi-arrow-down"></i>
+            Learn more <img src="/assets/images/arrow-down.svg" alt="Arrow Down" style={{ height: "1.5em", verticalAlign: "middle" }} />
           </a>
         </div>
       </Container>

@@ -17,7 +17,7 @@ const Companies = () => {
   return (
     <section className="companies-section py-5">
       <div className="container text-center">
-        <h2 className="section-title mb-5">Our Alumni Are Currently At...</h2>
+        <div className="section-title-text mb-5">Our Alumni Are Currently At...</div>
         <div className="companies-logos d-flex flex-wrap align-items-center gap-5">
           {companies.map((company, idx) => (
             <div className="company-logo-wrapper" key={idx}>
@@ -37,3 +37,5 @@ const Companies = () => {
 };
 
 export default Companies;
+
+

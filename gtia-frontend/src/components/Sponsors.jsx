@@ -9,7 +9,7 @@ const Sponsors = () => {
   return (
     <section className="companies-section py-5">
       <div className="container text-center">
-        <h2 className="section-title mb-5">Thank you Sponsors</h2>
+        <div className="section-title-text mb-5">Thank you Sponsors</div>
         <div className="companies-logos d-flex flex-wrap align-items-center gap-5">
           {sponsors.map((sponsor, idx) => (
             <div className="company-logo-wrapper" key={idx}>

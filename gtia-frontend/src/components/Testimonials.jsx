@@ -64,7 +64,7 @@ const Testimonials = () => {
   return (
     <section className="testimonials-section py-5">
       <div className="container px-5">
-        <h2 className="section-title text-center mb-5">What They Say...</h2>
+        <div className="section-title-text text-center mb-5">What They Say...</div>
         <div ref={sliderRef} className="keen-slider">
           {testimonialsData.map((testimonial, index) => (
             <TestimonialCard

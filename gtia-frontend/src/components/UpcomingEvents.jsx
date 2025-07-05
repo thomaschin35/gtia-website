@@ -31,7 +31,7 @@ const UpcomingEvents = () => {
   return (
     <section id="upcoming-events" className="py-5">
       <Container>
-        <h2 className="text-center mb-5">Upcoming Events</h2>
+        <div className="text-center mb-5 section-title-text">Upcoming Events</div>
         <Row className="g-4">
           {events.map((event) => (
             <Col key={event.id} md={6} lg={4}>

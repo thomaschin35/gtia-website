@@ -33,16 +33,9 @@ main {
   flex-direction: column;
 }
 
-// Header styles
-.navbar {
-  background-color: $navbar-dark-bg;
-  padding: 1rem 0;
-}
-
 // Hero section styles
 .hero-section {
-  background-color: $hero-bg-color;
-  //   background-image: url('../assets/images/map.png');
+
   background-size: cover;
   background-position: center;
   position: relative;
@@ -73,31 +66,44 @@ main {
 
 .quote-text {
   font-style: italic;
-  color: $dark;
-  background-color: rgba(255, 255, 255, 0.9);
+  color: $white;
   padding: 0.75rem 1.5rem;
   border-radius: 49px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  font-size: 1.75rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 400;
   min-width: 40%;
+}
+
+.quote-background-left {
+  background: linear-gradient(270deg, $purple 0%, $dark-blue 100%);
+}
+
+.quote-background-right {
+  background: linear-gradient(90deg, $purple 0%, $dark-blue 100%);
+}
+
+.quote-gold-letter {
+  color: $gt-gold;
 }
 
 .hero-button {
   border-radius: 60px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background: linear-gradient(
+    90deg,
+    $white 59.62%,
+    rgba(251, 254, 255, 0.5) 79.81%,
+    rgba(251, 254, 255, 0) 100%
+  );
   border: 1px solid #dee2e6;
   font-weight: 800;
   color: $primary;
   font-size: 48px;
-  // font-size: 1.5rem;
-  // font-weight: 600;
   text-align: left;
   padding-left: 2rem !important;
   max-width: 400px;
   padding-top: -2rem;
-  // margin: 0 auto;
 }
 
 .hero-button-letter {
@@ -110,6 +116,7 @@ main {
 .learn-more-button {
   color: $purple;
   font-size: $h1-font-size;
+  text-decoration: none;
 }
 
 .testimonials-section {
@@ -170,7 +177,7 @@ main {
   font-weight: 600;
   line-height: 120%; /* 1.8rem */
   text-align: right;
-  color: $gt-gold
+  color: $gt-gold;
 }
 
 // Remove old slide styles
@@ -230,7 +237,7 @@ footer {
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  min-height: 64px;
+  min-height: 80px;
 }
 
 .company-logo {
@@ -264,8 +271,12 @@ footer {
   gap: 2.125rem;
   padding: 1.875rem 2.1875rem 3.75rem 2.1875rem;
   border-radius: 1.875rem;
-  background: linear-gradient(90deg, $white 59.62%, rgba(251, 254, 255, 0.00) 100%);
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+  background: linear-gradient(
+    90deg,
+    $white 59.62%,
+    rgba(251, 254, 255, 0) 100%
+  );
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
   min-width: 29.5rem;
   max-width: 29.5rem;
   // flex-basis: 340px;
@@ -391,3 +402,224 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+.custom-navbar {
+  background: $dark-blue;
+  width: 100vw;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: none;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0;
+}
+
+.navbar-inner {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 0.75rem 2rem;
+}
+
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-logo-text {
+  color: $gold;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-left: 0.25rem;
+}
+
+/* Hamburger styles */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+.navbar-hamburger-bar {
+  width: 28px;
+  height: 3px;
+  background: $white;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.navbar-nav-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.navbar-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav-link {
+  color: $white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.navbar-nav-link.active,
+.navbar-nav-link:hover {
+  color: $light-yellow;
+}
+
+.join-us-btn {
+  background: $white;
+  color: $dark-blue;
+  font-weight: 700;
+  border-radius: 3.125rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+.join-us-btn:hover {
+  background: linear-gradient(270deg, $light-yellow 0%, $light-blue 100%);
+  color: $dark-blue;
+  box-shadow: 0px 4px 5px 0px rgba(255, 255, 255, 0.6) inset,
+    0px 0px 30px 0px $light-yellow;
+}
+
+@media (max-width: 900px) {
+  .navbar-inner {
+    gap: 0;
+    padding: 0.75rem 1rem;
+  }
+  .navbar-logo-link {
+    margin-right: 0;
+  }
+  .navbar-nav-section {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    background: $dark-blue;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1001;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+  .navbar-nav-section.open {
+    display: flex;
+  }
+  .navbar-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  .navbar-hamburger {
+    display: flex;
+  }
+}
+
+.section-title-text {
+  font-size: $big-h1-font-size;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: $dark-blue;
+}
+
+.homepage-bg-stack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto; // or a fixed height if you want
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-ellipse,
+.bg-globe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw; // or a specific width if you want
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ellipse-4 { z-index: 1; }
+.ellipse-3 { z-index: 2; }
+.ellipse-2 { z-index: 3; }
+.ellipse-1 { z-index: 4; }
+.bg-globe  { z-index: 5; }
+
+// Optionally, you can add top/left offsets for each image if needed for alignment
+
+.homepage-bg-stack-bottom {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-ellipse-bottom,
+.bg-globe-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ellipse-4-bottom { z-index: 1; }
+.ellipse-3-bottom { z-index: 2; }
+.ellipse-2-bottom { z-index: 3; }
+.ellipse-1-bottom { z-index: 4; }
+.bg-globe-bottom  { z-index: 5; }

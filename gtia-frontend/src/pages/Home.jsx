@@ -6,19 +6,21 @@ import Testimonials from '../components/Testimonials';
 import Companies from '../components/Companies';
 import Sponsors from '../components/Sponsors';
 import Footer from '../components/Footer';
+import HomepageBgStackTop from '../components/HomepageBgStackTop';
+import HomepageBgStackBottom from '../components/HomepageBgStackBottom';
 
 const Home = () => {
   return (
     <div className="home-page">
       <Header />
-      <main>
-        <HeroSection />
-        <UpcomingEvents />
-        <Testimonials />
-        <Companies />
-        <Sponsors />
-      </main>
+      <HomepageBgStackTop />
+      <HeroSection />
+      <UpcomingEvents />
+      <Testimonials />
+      <Companies />
+      <Sponsors />
       <Footer />
+      <HomepageBgStackBottom />
     </div>
   );
 };
