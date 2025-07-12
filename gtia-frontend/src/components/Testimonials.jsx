@@ -28,6 +28,24 @@ const Testimonials = () => {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
+      slides: {
+        perView: 1,
+        spacing: 15,
+      },
+      breakpoints: {
+        '(min-width: 768px)': {
+          slides: {
+            perView: 1,
+            spacing: 30,
+          },
+        },
+        '(min-width: 1200px)': {
+          slides: {
+            perView: 1,
+            spacing: 50,
+          },
+        },
+      },
     },
     [
       (slider) => {
@@ -62,9 +80,9 @@ const Testimonials = () => {
   );
 
   return (
-    <section className="testimonials-section py-5">
-      <div className="container px-5">
-        <div className="section-title-text text-center mb-5">What They Say...</div>
+    <section className="testimonials-section py-4 py-md-5">
+      <div className="container px-3 px-md-5">
+        <div className="section-title-text text-center mb-4 mb-md-5">What They Say...</div>
         <div ref={sliderRef} className="keen-slider">
           {testimonialsData.map((testimonial, index) => (
             <TestimonialCard

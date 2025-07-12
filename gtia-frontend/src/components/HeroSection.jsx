@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 
 const HeroSection = () => {
   return (
-    <section className="hero-section py-5">
+    <section className="hero-section py-3 py-md-5">
       <Container fluid className="position-relative">
         <div className="hero-quote-container">
           <div className="hero-quote-top">
@@ -13,26 +13,26 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <Row className="justify-content-center py-5">
-          <Col md={8} >
+        <Row className="justify-content-center py-3 py-md-5">
+          <Col xs={12} md={10} lg={8}>
             <div className="d-flex justify-content-center">
-              <Row className="justify-content-center g-3">
-                <Col xs={9} className="d-flex justify-content-center">
+              <Row className="justify-content-center g-2 g-md-3">
+                <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
                       <span className="hero-button-letter">G</span>eorgia
                   </div>
                 </Col>
-                <Col xs={9} className="d-flex justify-content-center">
+                <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
                     <span className="hero-button-letter">T</span>ech
                   </div>
                 </Col>
-                <Col xs={9} className="d-flex justify-content-center">
+                <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
                     <span className="hero-button-letter">I</span>nternaional
                   </div>
                 </Col>
-                <Col xs={9} className="d-flex justify-content-center">
+                <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
                     <span className="hero-button-letter">A</span>mbassadors
                   </div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
               </Row>
             </div>
 
-            <div className="d-flex justify-content-center mt-4 gap-5">
+            <div className="d-flex justify-content-center mt-3 mt-md-4 gap-3 gap-md-5">
              <div className="d-flex align-items-center px-1">
                 <img src="/assets/images/guide-icon.svg"></img>
                 <a className="px-2">
@@ -62,7 +62,7 @@ const HeroSection = () => {
             ... and the <span className="quote-gold-letter">world</span> to Georgia Tech."
           </h2>
         </div>
-        <div className="text-center mt-5">
+        <div className="text-center mt-3 mt-md-5">
           <a href="#upcoming-events" className="btn btn-link learn-more-button"  >
             Learn more <img src="/assets/images/arrow-down.svg" alt="Arrow Down" style={{ height: "1.5em", verticalAlign: "middle" }} />
           </a>

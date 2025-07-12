@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const events = [
   {
@@ -56,8 +56,21 @@ const VISIBLE_RANGE = 1; // Show 1 card on each side (3 total)
 
 const EventCarousel = () => {
   const [active, setActive] = useState(3); // Start in the middle
+  const [isMobile, setIsMobile] = useState(false);
   const dragStartX = useRef(null);
   const dragging = useRef(false);
+
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const mod = (n, m) => ((n % m) + m) % m; // true modulo for wrapping
 
@@ -66,11 +79,14 @@ const EventCarousel = () => {
     dragging.current = true;
     dragStartX.current = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
   };
+  
   const handleDragMove = (e) => {
     if (!dragging.current) return;
     const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
     const diff = clientX - dragStartX.current;
-    if (Math.abs(diff) > 50) {
+    const threshold = isMobile ? 30 : 50; // Lower threshold for mobile
+    
+    if (Math.abs(diff) > threshold) {
       if (diff < 0) {
         setActive((prev) => mod(prev + 1, events.length));
         dragging.current = false;
@@ -80,6 +96,7 @@ const EventCarousel = () => {
       }
     }
   };
+  
   const handleDragEnd = () => {
     dragging.current = false;
     dragStartX.current = null;
@@ -88,9 +105,30 @@ const EventCarousel = () => {
   const handleNext = () => {
     setActive((prev) => mod(prev + 1, events.length));
   };
+  
   const handlePrev = () => {
     setActive((prev) => mod(prev - 1, events.length));
   };
+
+  // Calculate responsive dimensions
+  const getCardDimensions = () => {
+    if (isMobile) {
+      return {
+        width: '90vw',
+        height: '200px',
+        left: '5vw',
+        transformDistance: 300
+      };
+    }
+    return {
+      width: '506px',
+      height: '308px',
+      left: 'calc(50% - 253px)',
+      transformDistance: 540
+    };
+  };
+
+  const dimensions = getCardDimensions();
 
   return (
     <div
@@ -111,6 +149,7 @@ const EventCarousel = () => {
         if (offset < -events.length / 2) offset += events.length;
         let style = {};
         let isActive = idx === active;
+        
         if (isActive) {
           style = {
             transform: 'none',
@@ -121,17 +160,18 @@ const EventCarousel = () => {
             cursor: 'default',
           };
         } else if (Math.abs(offset) <= VISIBLE_RANGE) {
+          const scale = isMobile ? (1 - 0.1 * Math.abs(offset)) : (1 - 0.2 * Math.abs(offset));
           style = {
-            transform: `translateX(${540 * offset}px) scale(${1 - 0.2 * Math.abs(offset)})`,
+            transform: `translateX(${dimensions.transformDistance * offset}px) scale(${scale})`,
             zIndex: 10 - Math.abs(offset),
-            filter: 'blur(0.8px)',
-            opacity: 0.9,
+            filter: isMobile ? 'blur(0.5px)' : 'blur(0.8px)',
+            opacity: isMobile ? 0.8 : 0.9,
             pointerEvents: 'auto',
             cursor: 'pointer',
           };
         } else if (offset < 0) {
           style = {
-            transform: 'translateX(-900px)',
+            transform: `translateX(-${dimensions.transformDistance * 2}px)`,
             zIndex: 1,
             filter: 'blur(2px)',
             opacity: 0,
@@ -139,13 +179,14 @@ const EventCarousel = () => {
           };
         } else if (offset > 0) {
           style = {
-            transform: 'translateX(900px)',
+            transform: `translateX(${dimensions.transformDistance * 2}px)`,
             zIndex: 1,
             filter: 'blur(2px)',
             opacity: 0,
             pointerEvents: 'none',
           };
         }
+        
         return (
           <div
             className="event-carousel-item"
@@ -159,8 +200,9 @@ const EventCarousel = () => {
               flexDirection: 'column',
               justifyContent: 'space-between',
               overflow: 'hidden',
-              width: '506px',
-              height: '308px',
+              width: dimensions.width,
+              height: dimensions.height,
+              left: dimensions.left,
             }}
             onClick={() => !isActive && Math.abs(offset) <= VISIBLE_RANGE && setActive(idx)}
           >

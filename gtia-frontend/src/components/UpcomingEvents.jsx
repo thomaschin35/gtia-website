@@ -29,9 +29,9 @@ const UpcomingEvents = () => {
   ];
 
   return (
-    <section id="upcoming-events" className="mt-5">
+    <section id="upcoming-events" className="mt-4 mt-md-5">
       <Container>
-        <div className="text-center mb-5 section-title-text">Upcoming Events</div>
+        <div className="text-center mb-4 mb-md-5 section-title-text">Upcoming Events</div>
         <EventCarousel />
       </Container>
     </section>

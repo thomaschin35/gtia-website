@@ -5,6 +5,7 @@ import UpcomingEvents from '../components/UpcomingEvents';
 import Testimonials from '../components/Testimonials';
 import Companies from '../components/Companies';
 import Sponsors from '../components/Sponsors';
+import JoinDiscord from '../components/JoinDiscord';
 import Footer from '../components/Footer';
 import HomepageBgStackTop from '../components/HomepageBgStackTop';
 import HomepageBgStackBottom from '../components/HomepageBgStackBottom';
@@ -19,6 +20,7 @@ const Home = () => {
       <Testimonials />
       <Companies />
       <Sponsors />
+      <JoinDiscord />
       <Footer />
       <HomepageBgStackBottom />
     </div>
