@@ -1,18 +1,17 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import GlobeComponent from "../components/about/Globe";
 
 const About = () => {
   return (
     <div className="about-page">
       <Header />
-      <main className="container py-5">
-        <h1>About GTIA</h1>
-        {/* Content will be added later */}
-      </main>
+
+      <GlobeComponent />
       <Footer />
     </div>
   );
 };
 
-export default About; 
+export default About;

@@ -1,0 +1,208 @@
+import React, { useRef, useEffect, useState } from "react";
+import Globe from "react-globe.gl";
+import * as THREE from "three";
+
+const markers = [
+  {
+    lat: 40.7128,
+    lng: -74.006,
+    imageUrl: "/assets/images/nemo.png",
+    name: "Alice",
+    city: "New York",
+    country: "USA",
+  },
+  {
+    lat: 51.5074,
+    lng: -0.1278,
+    imageUrl: "/assets/images/nemo.png",
+    name: "Bob",
+    city: "London",
+    country: "UK",
+  },
+];
+
+const GlobeComponent = () => {
+  const globeEl = useRef();
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const globe = globeEl.current;
+    if (globe) {
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = 0.5;
+
+      // Disable zooming while keeping rotation and panning
+      globe.controls().enableZoom = false;
+      globe.controls().enableRotate = true;
+      globe.controls().enablePan = true;
+
+      // Add lighting so materials are visible
+      // const scene = globe.scene();
+      // scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+    }
+  }, []);
+
+  return (
+    <div
+      style={{
+        width: "100vw",
+        height: "90vh",
+      }}
+    >
+      <div style={{ width: "100%", height: "100%" }}>
+        <Globe
+          ref={globeEl}
+          globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg"
+          width={windowDimensions.width}
+          height={windowDimensions.height * 0.8}
+          backgroundColor="rgba(0,0,0,0)"
+          objectsData={markers}
+          objectLat={(d) => d.lat}
+          objectLng={(d) => d.lng}
+          objectLabel={(d) => `
+            <div style="
+              background: rgba(0,0,0,0.8);
+              padding: 6px 10px;
+              border-radius: 6px;
+              font-size: 13px;
+              color: white;
+              text-align: center;
+            ">
+              <div style="font-weight: bold;">${d.name}</div>
+              <div>${d.city}, ${d.country}</div>
+            </div>
+          `}
+          objectThreeObject={(d) => {
+            const radius = 5;
+            const height = 2;
+
+            // Cylinder body
+            const cylinderGeometry = new THREE.CylinderGeometry(
+              radius,
+              radius,
+              height,
+              64,
+              1,
+              false
+            );
+            const cylinderMaterial = new THREE.MeshStandardMaterial({
+              color: "#888",
+            });
+            const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+            cylinder.rotation.x = Math.PI / 2;
+
+            // Top disc with avatar
+            const topCircleGeometry = new THREE.CircleGeometry(radius, 64);
+            const topMaterial = new THREE.MeshStandardMaterial({
+              color: "#ffffff",
+            });
+            const topCircle = new THREE.Mesh(topCircleGeometry, topMaterial);
+            // topCircle.rotation.set(0, 0, 0); // ✅ DON'T rotate it — it already faces +Z
+            topCircle.position.z = height / 2 + 0.5;
+            topCircle.rotation.set(0.1, 0, 0); // slight angle (~5.7 degrees)
+
+            // Load avatar texture
+            const textureLoader = new THREE.TextureLoader();
+            textureLoader.load(
+              d.imageUrl,
+              (texture) => {
+                texture.wrapS = THREE.ClampToEdgeWrapping;
+                texture.wrapT = THREE.ClampToEdgeWrapping;
+
+                // ✅ Use trilinear filtering (mipmap + smooth scaling)
+                texture.minFilter = THREE.LinearMipMapLinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+
+                // ✅ Force mipmap generation in case it's not done automatically
+                texture.generateMipmaps = true;
+
+                // ✅ Anisotropic filtering: critical for reducing shimmer at angles
+                const renderer = globeEl.current.renderer();
+                const maxAnisotropy = renderer.capabilities.getMaxAnisotropy();
+                texture.anisotropy = maxAnisotropy;
+
+                topMaterial.map = texture;
+                topMaterial.needsUpdate = true;
+              },
+              undefined,
+              (err) => {
+                console.error("Failed to load avatar for", d.name, err);
+                topMaterial.color.set("#f00");
+              }
+            );
+
+            // GLOW RING
+            const glowRadiusInner = radius * 1.05;
+            const glowRadiusOuter = radius * 1.2;
+            const glowGeometry = new THREE.RingGeometry(
+              glowRadiusInner,
+              glowRadiusOuter,
+              64
+            );
+
+            const glowMaterial = new THREE.MeshBasicMaterial({
+              color: 0x00ffff, // Glow color (cyan here)
+              transparent: true,
+              opacity: 0.5,
+              side: THREE.DoubleSide,
+              blending: THREE.AdditiveBlending,
+              depthWrite: false,
+            });
+
+            const glowRing = new THREE.Mesh(glowGeometry, glowMaterial);
+            glowRing.rotation.set(0, 0, 0); // Match avatar orientation
+            glowRing.position.z = topCircle.position.z + 0.001; // Just above the avatar
+            // Group both
+            const group = new THREE.Group();
+            group.add(cylinder);
+            group.add(topCircle);
+            group.add(glowRing);
+
+            return group;
+          }}
+          objectThreeObjectUpdate={(obj) => {
+            // Optional: slow spin
+            obj.rotation.z += 0.01;
+          }}
+          onGlobeReady={() => {
+            globeEl.current.controls().autoRotate = true;
+            globeEl.current.controls().autoRotateSpeed = 0.5;
+
+            // Set initial zoom level (lower altitude = more zoomed in)
+            globeEl.current.pointOfView(
+              { lat: 0, lng: 0, altitude: 2.0 },
+              1000
+            );
+          }}
+        />
+        <div className="text-center">
+          <a href="#upcoming-events" className="btn btn-link learn-more-button">
+            Learn more{" "}
+            <img
+              src="/assets/images/arrow-down.svg"
+              alt="Arrow Down"
+              style={{ height: "1.5em", verticalAlign: "middle" }}
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GlobeComponent;
