@@ -5,11 +5,7 @@ const companies = [
   { name: "Stanford University", logo: "/assets/images/stanford.png" },
   { name: "Google", logo: "/assets/images/google.png" },
   { name: "J&J", logo: "/assets/images/jnj.png" },
-  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" },
-  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" },
-  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" },
-  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" },
-  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" },
+  { name: "Carnegie Mellon University", logo: "/assets/images/cmu.png" }
   
 ];
 

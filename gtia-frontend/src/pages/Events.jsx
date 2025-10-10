@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import EventCarousel from '../components/EventCarousel';
+import EventCarousel from '../components/home/EventCarousel';
 
 const Events = () => {
   return (

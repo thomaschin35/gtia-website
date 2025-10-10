@@ -1,10 +1,13 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+// import PlaneAnimation from "./PlaneAnimation";
 
 const HeroSection = () => {
+
   return (
     <section className="hero-section py-3 py-md-5">
       <Container fluid className="position-relative">
+        {/* <PlaneAnimation /> */}
         <div className="hero-quote-container">
           <div className="hero-quote-top">
             <h2 className="quote-text quote-background-left">
@@ -15,7 +18,7 @@ const HeroSection = () => {
 
         <Row className="justify-content-center py-3 py-md-5">
           <Col xs={12} md={10} lg={8}>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center position-relative">
               <Row className="justify-content-center g-2 g-md-3">
                 <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
@@ -38,6 +41,20 @@ const HeroSection = () => {
                   </div>
                 </Col>
               </Row>
+              
+              {/* Hoverable Card */}
+              <div className="hero-card">
+                <div className="hero-card-inner">
+                  <img 
+                    src="/assets/images/homepage/gtia-family.jpg"
+                    alt="GTIA Family"
+                    className="hero-card-image"
+                  />
+                  <div className="hero-card-text">
+                    our lovely family!
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="d-flex justify-content-center mt-3 mt-md-4 gap-3 gap-md-5">

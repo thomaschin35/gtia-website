@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
-import HeroSection from '../components/HeroSection';
-import UpcomingEvents from '../components/UpcomingEvents';
-import Testimonials from '../components/Testimonials';
-import Companies from '../components/Companies';
-import Sponsors from '../components/Sponsors';
-import JoinDiscord from '../components/JoinDiscord';
+import HeroSection from '../components/home/HeroSection';
+import UpcomingEvents from '../components/home/UpcomingEvents';
+import Testimonials from '../components/home/Testimonials';
+import Companies from '../components/home/Companies';
+import Sponsors from '../components/home/Sponsors';
+import JoinDiscord from '../components/home/JoinDiscord';
 import Footer from '../components/Footer';
-import HomepageBgStackTop from '../components/HomepageBgStackTop';
-import HomepageBgStackBottom from '../components/HomepageBgStackBottom';
+import HomepageBgStackTop from '../components/home/HomepageBgStackTop';
+import HomepageBgStackBottom from '../components/home/HomepageBgStackBottom';
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
       <Testimonials />
       <Companies />
       <Sponsors />
-      <JoinDiscord />
+      {/* <JoinDiscord /> */}
       <Footer />
       <HomepageBgStackBottom />
     </div>

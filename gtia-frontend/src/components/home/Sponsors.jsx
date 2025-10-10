@@ -1,8 +1,8 @@
 import React from "react";
 
 const sponsors = [
-  { name: "Amazon", logo: "/assets/images/amazon.png" },
-  { name: "Stanford University", logo: "/assets/images/stanford.png" },
+  { name: "oie", logo: "/assets/images/homepage/oie.png" },
+  { name: "SGA", logo: "/assets/images/homepage/sga.png" },
 ];
 
 const Sponsors = () => {
@@ -18,7 +18,7 @@ const Sponsors = () => {
                 alt={sponsor.name}
                 className="company-logo"
                 height={64}
-                style={{ maxWidth: "180px", width: "auto" }}
+                style={{ maxWidth: "300px", width: "auto" }}
               />
             </div>
           ))}

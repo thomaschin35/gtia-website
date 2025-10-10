@@ -5,51 +5,23 @@ const events = [
     id: 1,
     title: 'Night Market',
     date: 'November 8, 2025',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...',
+    image: '/assets/images/homepage/night-market.png',
+    description: 'Celebrate cultures through food, music, and performances',
   },
   {
     id: 2,
     title: 'Culture Fest',
     date: 'December 10, 2025',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
+    image: '/assets/images/homepage/culture-fest.png',
+    description: 'Week long celebration of culture'
   },
   {
     id: 3,
-    title: 'Spring Gala',
+    title: 'Retreat',
     date: 'March 15, 2026',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
+    image: '/assets/images/homepage/night-market.png',
+    description: 'Awesome times!'
   },
-  {
-    id: 4,
-    title: 'Winter Ball',
-    date: 'January 20, 2026',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
-  },
-  {
-    id: 5,
-    title: 'Food Festival',
-    date: 'April 10, 2026',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
-  },
-  {
-    id: 6,
-    title: 'Music Night',
-    date: 'May 5, 2026',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
-  },
-  {
-    id: 7,
-    title: 'Art Expo',
-    date: 'June 1, 2026',
-    image: '/placeholder.jpg',
-    description: 'Lorem ipsum dolor sit amet...'
-  }
 ];
 
 const VISIBLE_RANGE = 1; // Show 1 card on each side (3 total)
@@ -193,7 +165,7 @@ const EventCarousel = () => {
             key={event.id}
             style={{
               ...style,
-              backgroundImage: `url('assets/images/test.png')`,
+              backgroundImage: `url(${event.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               display: 'flex',
@@ -203,6 +175,7 @@ const EventCarousel = () => {
               width: dimensions.width,
               height: dimensions.height,
               left: dimensions.left,
+              boxShadow: '0 4px 13px 0 rgba(0, 0, 0, 0.10), 0 -58px 100px 0 var(--purple, #585684) inset',
             }}
             onClick={() => !isActive && Math.abs(offset) <= VISIBLE_RANGE && setActive(idx)}
           >

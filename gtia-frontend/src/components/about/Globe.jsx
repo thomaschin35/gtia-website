@@ -58,10 +58,11 @@ const GlobeComponent = () => {
   }, []);
 
   return (
-    <div
+    <section
       style={{
         width: "100vw",
         height: "90vh",
+        background: "var(--sky_blue_bg, linear-gradient(180deg, #CEEFFF 0%, #FBFEFF 100%))",
       }}
     >
       <div style={{ width: "100%", height: "100%" }}>
@@ -191,7 +192,7 @@ const GlobeComponent = () => {
           }}
         />
         <div className="text-center">
-          <a href="#upcoming-events" className="btn btn-link learn-more-button">
+          <a href="#mission" className="btn btn-link learn-more-button">
             Learn more{" "}
             <img
               src="/assets/images/arrow-down.svg"
@@ -201,7 +202,7 @@ const GlobeComponent = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
