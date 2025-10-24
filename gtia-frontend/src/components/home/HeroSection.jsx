@@ -22,7 +22,7 @@ const HeroSection = () => {
               <Row className="justify-content-center g-2 g-md-3">
                 <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
                   <div className="w-100 hero-button">
-                      <span className="hero-button-letter">G</span>eorgia
+                      <span className="hero-button-letter">EMily</span>eorgia
                   </div>
                 </Col>
                 <Col xs={10} sm={9} md={8} className="d-flex justify-content-center">
@@ -84,6 +84,9 @@ const HeroSection = () => {
             Learn more <img src="/assets/images/arrow-down.svg" alt="Arrow Down" style={{ height: "1.5em", verticalAlign: "middle" }} />
           </a>
         </div>
+        <div className="emily">
+          <h1> EMILY </h1>
+        </div>  
       </Container>
     </section>
   );
