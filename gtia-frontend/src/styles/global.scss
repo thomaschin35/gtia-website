@@ -33,6 +33,14 @@ main {
   flex-direction: column;
 }
 
+.thomas {
+  background-color: bisque;
+  letter-spacing: 10px;
+  color: cadetblue;
+  text-align: center;
+  padding: 50px;
+}
+
 // Hero section styles
 .hero-section {
   background-size: cover;
@@ -881,11 +889,21 @@ footer {
   user-select: none;
 }
 
-.ellipse-4 { z-index: 1; }
-.ellipse-3 { z-index: 2; }
-.ellipse-2 { z-index: 3; }
-.ellipse-1 { z-index: 4; }
-.bg-globe  { z-index: 5; }
+.ellipse-4 {
+  z-index: 1;
+}
+.ellipse-3 {
+  z-index: 2;
+}
+.ellipse-2 {
+  z-index: 3;
+}
+.ellipse-1 {
+  z-index: 4;
+}
+.bg-globe {
+  z-index: 5;
+}
 
 // Optionally, you can add top/left offsets for each image if needed for alignment
 
@@ -909,11 +927,21 @@ footer {
   user-select: none;
 }
 
-.ellipse-4-bottom { z-index: 1; }
-.ellipse-3-bottom { z-index: 2; }
-.ellipse-2-bottom { z-index: 3; }
-.ellipse-1-bottom { z-index: 4; }
-.bg-globe-bottom  { z-index: 5; }
+.ellipse-4-bottom {
+  z-index: 1;
+}
+.ellipse-3-bottom {
+  z-index: 2;
+}
+.ellipse-2-bottom {
+  z-index: 3;
+}
+.ellipse-1-bottom {
+  z-index: 4;
+}
+.bg-globe-bottom {
+  z-index: 5;
+}
 
 .event-slider {
   position: relative;
@@ -950,7 +978,7 @@ footer {
   background-position: center;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
   padding: 0;
   transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1),
     opacity 0.4s cubic-bezier(0.4, 0.2, 0.2, 1),
@@ -961,12 +989,12 @@ footer {
 
   @media (max-width: 768px) {
     border-radius: 12px;
-    box-shadow: 0 3px 12px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 576px) {
     border-radius: 10px;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -975,7 +1003,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 70%;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   padding: 1rem 1.5rem 1.2rem 1.5rem;
   border-top-right-radius: 1.5rem;
   display: flex;
@@ -1035,12 +1063,12 @@ footer {
   align-items: center;
   gap: 0.5625rem;
   border-radius: 1.875rem;
-  border: 2px solid #B3A369;
-  background: #FFF;
+  border: 2px solid #b3a369;
+  background: #fff;
   font-size: 1rem;
   font-weight: 600;
   z-index: 2;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.07);
 
   @media (max-width: 768px) {
     top: 0.75rem;
@@ -1063,7 +1091,7 @@ footer {
 }
 
 .event-date-icon {
-  color: #B3A369;
+  color: #b3a369;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -1098,7 +1126,11 @@ footer {
   align-items: center;
   gap: 6.5625rem;
   border-radius: 3.125rem;
-  background: linear-gradient(259deg, #01324B 2.18%, var(--purple, #585684) 63.69%);
+  background: linear-gradient(
+    259deg,
+    #01324b 2.18%,
+    var(--purple, #585684) 63.69%
+  );
   margin: 0 auto;
   box-sizing: border-box;
 
@@ -1174,7 +1206,7 @@ footer {
 .join-discord-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #FBFEFF;
+  color: #fbfeff;
   margin: 0;
   font-family: var(--big-h1-font, inherit);
 
@@ -1194,7 +1226,7 @@ footer {
 
 .join-discord-description {
   font-size: 1.125rem;
-  color: #FBFEFF;
+  color: #fbfeff;
   margin: 0 0 1.5rem 0;
   line-height: 1.5;
 
@@ -1221,12 +1253,12 @@ footer {
   justify-content: center;
   align-items: center;
   border-radius: 3.125rem;
-  background: var(--white, #FBFEFF);
-  box-shadow: 0px 0px 30px 0px var(--light-yellow, #FFEFBF);
+  background: var(--white, #fbfeff);
+  box-shadow: 0px 0px 30px 0px var(--light-yellow, #ffefbf);
   border: none;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #01324B;
+  color: #01324b;
   cursor: pointer;
   gap: 0.75rem;
   transition: box-shadow 0.2s;
@@ -1253,7 +1285,7 @@ footer {
 }
 
 .join-discord-button:hover {
-  box-shadow: 0px 0px 40px 0px var(--light-yellow, #FFEFBF);
+  box-shadow: 0px 0px 40px 0px var(--light-yellow, #ffefbf);
 }
 
 .button-discord-icon {
@@ -1277,7 +1309,7 @@ footer {
     height: 1.25rem;
     margin-right: 0.25rem;
   }
-} 
+}
 
 // Hero Card Styles
 .hero-card {
@@ -1295,8 +1327,8 @@ footer {
   flex-shrink: 0;
   border-radius: 1rem;
   opacity: 0.88;
-  background: var(--white, #FBFEFF);
-  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.10);
+  background: var(--white, #fbfeff);
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   z-index: 10;
 
@@ -1384,10 +1416,6 @@ footer {
     font-size: 0.6rem;
   }
 }
-
-
-
-
 
 #flight-path {
   stroke-dasharray: 1000;
