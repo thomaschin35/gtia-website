@@ -9,6 +9,7 @@ import JoinDiscord from '../components/home/JoinDiscord';
 import Footer from '../components/Footer';
 import HomepageBgStackTop from '../components/home/HomepageBgStackTop';
 import HomepageBgStackBottom from '../components/home/HomepageBgStackBottom';
+import DecorativePath from '../components/home/DecorativePath';
 
 const Home = () => {
   return (
@@ -16,8 +17,12 @@ const Home = () => {
       <Header />
       <HomepageBgStackTop />
       <HeroSection />
-      <UpcomingEvents />
-      <Testimonials />
+      <div className="events-testimonials-viewport events-testimonials-desktop-spacing position-relative">
+        {/* Desktop decorative path - behind event carousel */}
+        <DecorativePath className="decorative-path-desktop" />
+        <UpcomingEvents />
+        <Testimonials />
+      </div>
       <Companies />
       <Sponsors />
       {/* <JoinDiscord /> */}

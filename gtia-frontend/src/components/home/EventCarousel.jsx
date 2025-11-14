@@ -86,17 +86,17 @@ const EventCarousel = () => {
   const getCardDimensions = () => {
     if (isMobile) {
       return {
-        width: '90vw',
-        height: '200px',
-        left: '5vw',
-        transformDistance: 300
+        width: '80vw',
+        height: '350px',
+        left: '10vw',
+        transformDistance: window.innerWidth * 0.8
       };
     }
     return {
-      width: '506px',
-      height: '308px',
-      left: 'calc(50% - 253px)',
-      transformDistance: 540
+      width: '650px',
+      height: '400px',
+      left: 'calc(50% - 325px)',
+      transformDistance: 700
     };
   };
 
@@ -137,7 +137,7 @@ const EventCarousel = () => {
             transform: `translateX(${dimensions.transformDistance * offset}px) scale(${scale})`,
             zIndex: 10 - Math.abs(offset),
             filter: isMobile ? 'blur(0.5px)' : 'blur(0.8px)',
-            opacity: isMobile ? 0.8 : 0.9,
+            opacity: isMobile ? 0.8 : 1,
             pointerEvents: 'auto',
             cursor: 'pointer',
           };
