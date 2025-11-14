@@ -80,18 +80,20 @@ const Testimonials = () => {
   );
 
   return (
-    <section className="testimonials-section py-4 py-md-5">
-      <div className="container px-3 px-md-5">
-        <div className="section-title-text text-center mb-4 mb-md-5">What They Say...</div>
-        <div ref={sliderRef} className="keen-slider">
-          {testimonialsData.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              avatar={testimonial.avatar}
-              text={testimonial.text}
-              name={testimonial.name}
-            />
-          ))}
+    <section id="testimonials" className="testimonials-section testimonials-viewport">
+      <div className="container px-3 px-md-5 h-100 d-flex flex-column">
+        <div className="section-title-text text-center mb-3 mb-md-4">What They Say...</div>
+        <div className="flex-grow-1 d-flex align-items-center">
+          <div ref={sliderRef} className="keen-slider w-100">
+            {testimonialsData.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                avatar={testimonial.avatar}
+                text={testimonial.text}
+                name={testimonial.name}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

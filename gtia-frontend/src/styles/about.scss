@@ -3,11 +3,145 @@
 @import "bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
+// Global mobile overflow prevention
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+// Specific constraints for mobile
+@media (max-width: 768px) {
+  * {
+    max-width: 100vw;
+  }
+}
+
 .about-page {
   // min-height: 100vh;
   display: flex;
   flex-direction: column;
   // background: var(--sunset_gradient, linear-gradient(180deg, #CEEFFF 0%, #FFE4D4 100%));
+}
+
+// Globe Section Styles
+.globe-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+// Ensure globe section takes full viewport height on mobile
+@media (max-width: 768px) {
+  .globe-section {
+    height: 100vh;
+    overflow: hidden;
+    min-height: 100vh;
+    max-width: 100vw;
+    width: 100vw;
+  }
+  
+  .about-page {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+
+// Text banners behind the globe
+.globe-text-banners {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15%;
+}
+
+.text-banner {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  
+  span {
+    color: var(--dark-blue, #01324B);
+    font-family: Outfit;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+  }
+}
+
+.text-banner-left {
+  // Position to the left of the globe center, higher than center
+  transform: translateX(3rem) translateY(-9rem);
+  width: 40rem; // Extend to the left
+  text-align: left;
+  
+  span {
+    text-align: left;
+  }
+}
+
+.text-banner-right {
+  // Position to the right of the globe center, lower than center
+  transform: translateX(0rem) translateY(2rem);
+  width: 40rem; // Extend to the right
+  text-align: right;
+  
+  span {
+    text-align: right;
+  }
+}
+
+.text-banner-mobile {
+  // Hidden by default, will be shown on mobile
+  display: none;
+  width: 20rem;
+  text-align: center;
+  margin: 2rem auto;
+  
+  span {
+    text-align: center;
+  }
+}
+
+.learn-more-button {
+  text-decoration: none;
+  color: var(--dark-blue, #01324B);
+  font-family: Outfit;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(5px);
+  }
 }
 
 // Mission Section
@@ -187,6 +321,47 @@
 }
 
 @media (max-width: 768px) {
+  // Globe section mobile styles
+  .globe-text-banners {
+    padding: 0 8%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-banner {
+    padding: 0.75rem 1.5rem;
+    
+    span {
+      font-size: 1.75rem;
+    }
+  }
+  
+  // Hide desktop banners on mobile
+  .text-banner-left,
+  .text-banner-right {
+    display: none;
+  }
+  
+  // Show mobile banner
+  .text-banner-mobile {
+    display: flex;
+    width: 18rem;
+    margin: 1.5rem auto;
+    
+    span {
+      font-size: 1.75rem;
+    }
+  }
+  
+  .learn-more-button {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    
+    img {
+      height: 1.2em !important;
+    }
+  }
+  
   .mission-cards {
     flex-direction: column;
     gap: 2rem;
@@ -956,5 +1131,39 @@
   
   .serial-number {
     display: none; // Hide on mobile for better layout
+  }
+}
+
+// Extra small mobile devices
+@media (max-width: 480px) {
+  .globe-text-banners {
+    padding: 0 5%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .text-banner {
+    padding: 0.5rem 1rem;
+    
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  
+  // Hide desktop banners on small mobile
+  .text-banner-left,
+  .text-banner-right {
+    display: none;
+  }
+  
+  // Show mobile banner with smaller size
+  .text-banner-mobile {
+    display: flex;
+    width: 16rem;
+    margin: 1rem auto;
+    
+    span {
+      font-size: 1.5rem;
+    }
   }
 }

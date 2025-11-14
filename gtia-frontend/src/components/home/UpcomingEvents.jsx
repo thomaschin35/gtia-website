@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import EventCarousel from "./EventCarousel";
+import DecorativePath from "./DecorativePath";
 
 const UpcomingEvents = () => {
   // Sample event data, would be replaced with actual data from an API
@@ -29,10 +30,14 @@ const UpcomingEvents = () => {
   ];
 
   return (
-    <section id="upcoming-events" className="mt-4 mt-md-5">
-      <Container>
-        <div className="text-center mb-4 mb-md-5 section-title-text">Upcoming Events</div>
-        <EventCarousel />
+    <section id="upcoming-events" className="upcoming-events-viewport position-relative">
+      {/* Mobile decorative path - behind title */}
+      <DecorativePath className="decorative-path-mobile" />
+      <Container className="h-100 d-flex flex-column">
+        <div className="text-center mb-3 mb-md-4 section-title-text position-relative">Upcoming Events</div>
+        <div className="flex-grow-1 d-flex align-items-center">
+          <EventCarousel />
+        </div>
       </Container>
     </section>
   );

@@ -27,6 +27,7 @@ const GlobeComponent = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,6 +35,7 @@ const GlobeComponent = () => {
         width: window.innerWidth,
         height: window.innerHeight,
       });
+      setIsMobile(window.innerWidth <= 768); // Current code for detecting if user is on mobile -- might need to be revised to incapsulate all mobile devices
     };
 
     window.addEventListener("resize", handleResize);
@@ -49,28 +51,63 @@ const GlobeComponent = () => {
       // Disable zooming while keeping rotation and panning
       globe.controls().enableZoom = false;
       globe.controls().enableRotate = true;
-      globe.controls().enablePan = true;
+      globe.controls().enablePan = isMobile ? false : true; // Disable panning on mobile for simpler interaction
 
       // Add lighting so materials are visible
       // const scene = globe.scene();
       // scene.add(new THREE.AmbientLight(0xffffff, 1.2));
     }
-  }, []);
+  }, [isMobile]);
+
+  // Calculate responsive dimensions
+  const globeHeight = isMobile 
+    ? Math.min(windowDimensions.height * 0.5, 400)
+    : windowDimensions.height * 0.8;
+
+  // Calculate responsive section height
+  const sectionHeight = isMobile ? "100vh" : "95vh";
 
   return (
     <section
+      className="globe-section"
       style={{
         width: "100vw",
-        height: "90vh",
+        height: sectionHeight,
         background: "var(--sky_blue_bg, linear-gradient(180deg, #CEEFFF 0%, #FBFEFF 100%))",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <div style={{ width: "100%", height: "100%" }}>
+      {/* Text banners positioned behind the globe */}
+      <div className="globe-text-banners">
+        <div className="text-banner text-banner-left">
+          <span>We are...</span>
+        </div>
+        <div className="text-banner text-banner-right">
+          <span>all around.</span>
+        </div>
+      </div>
+      
+      <div style={{ 
+        width: "100%", 
+        height: "100%", 
+        position: "relative", 
+        zIndex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: isMobile ? "center" : "flex-start",
+        paddingTop: isMobile ? "0" : "2rem",
+        maxWidth: "100vw",
+        overflow: "hidden"
+      }}>
         <Globe
           ref={globeEl}
           globeImageUrl="//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg"
           width={windowDimensions.width}
-          height={windowDimensions.height * 0.8}
+          height={globeHeight}
           backgroundColor="rgba(0,0,0,0)"
           objectsData={markers}
           objectLat={(d) => d.lat}
@@ -78,11 +115,12 @@ const GlobeComponent = () => {
           objectLabel={(d) => `
             <div style="
               background: rgba(0,0,0,0.8);
-              padding: 6px 10px;
+              padding: ${isMobile ? '8px 12px' : '6px 10px'};
               border-radius: 6px;
-              font-size: 13px;
+              font-size: ${isMobile ? '14px' : '13px'};
               color: white;
               text-align: center;
+              pointer-events: none;
             ">
               <div style="font-weight: bold;">${d.name}</div>
               <div>${d.city}, ${d.country}</div>
@@ -186,11 +224,17 @@ const GlobeComponent = () => {
 
             // Set initial zoom level (lower altitude = more zoomed in)
             globeEl.current.pointOfView(
-              { lat: 0, lng: 0, altitude: 2.0 },
+              { lat: 0, lng: 0, altitude: 1.8 },
               1000
             );
           }}
         />
+        
+        {/* Mobile single banner - positioned between globe and button */}
+        <div className="text-banner text-banner-mobile">
+          <span>We are all around.</span>
+        </div>
+        
         <div className="text-center">
           <a href="#mission" className="btn btn-link learn-more-button">
             Learn more{" "}
