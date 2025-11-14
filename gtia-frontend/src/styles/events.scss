@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import "./variables.scss";
+@import "bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+.events-page {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #ceefff 0%, var(--white, #fbfeff) 100%);
+
+//   justify-content: center;
+//   align-items: center;
+}
+.event-carousels-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-intro-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.event-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+  border-radius: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(251, 254, 255, 0) 0%,
+    #fbfeff 62.5%,
+    rgba(251, 254, 255, 0) 100%
+  );
+  box-shadow: 0px 4px 10px 0 rgba(0, 0, 0, 0.1);
+  width: 75%;
+}
+
+.event-banner-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.event-banner-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  // gap: 1rem;
+}
+
+.event-banner-globe {
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-intro-title {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  background: var(
+    --dark-blue-purple,
+    linear-gradient(90deg, var(--purple, #585684) 0%, #01324b 100%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  // color: $dark-blue;
+}
+
+.event-intro-hollow-text {
+  // align-self: stretch;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: $dark-blue;
+  -webkit-text-fill-color: transparent;
+  // color: transparent;
+  font-family: Outfit;
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.event-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  margin-top: 3rem;
+}
+
+.event-option {
+  display: flex;
+  padding: 0.74131rem 2.83906rem;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1.4085rem;
+  flex-wrap: wrap;
+  border-radius: 2.96519rem;
+  background: $purple;
+  text-decoration: none;
+  // width: 20%;
+
+  font-family: outfit;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+// Event carousel styles
+.event-carousel {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  // align-items: center;
+  // justify-content: center;
+  width: 75%;
+  height: 100%;
+}
+
+//EVENTS SLIDER STYLES
+
+.navigation-wrapper {
+  position: relative;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+}
+
+.arrow--disabled {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+// EVENT CARD STYLES
+
+.event-card-container {
+  // width: 75%;
+  height: 100%;
+  margin: 0 3rem;
+}
+.event-card {
+  width: 100%;
+  height: 100%;
+  // margin: 0 3rem;
+  border-radius: 2.5rem;
+  background: var(--white, #fbfeff);
+  /* soft-shadow */
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+.event-card-image {
+  width: 40%;
+  height: 100%;
+  overflow: hidden; /* hides the image corners that spill out */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* fills the container without distortion */
+    display: block;
+  }
+}
+.event-card-content {
+  width: 60%;
+}
+
+.event-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 3rem 3rem;
+  // justify-content: center;
+  // gap: 1rem;
+}
+.event-card-title {
+  h2 {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 2.4rem */
+    letter-spacing: -0.04rem;
+    color: $dark-blue;
+  }
+}
+.event-card-subtitle {
+  h3 {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 1.5rem */
+    color: #01324b;
+  }
+}
+// Override of the date badge
+.event-date-badge-epage {
+    display: inline-flex;
+    padding: 0.125rem 1.1875rem;
+    align-items: center;
+    gap: 0.5625rem;
+    border-radius: 1.875rem;
+    border: 2px solid #b3a369;
+    background: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.07);
+  
+    @media (max-width: 768px) {
+      top: 0.75rem;
+      right: 1rem;
+      padding: 0.1rem 0.875rem;
+      gap: 0.4rem;
+      border-radius: 1.5rem;
+      font-size: 0.9rem;
+    }
+  
+    @media (max-width: 576px) {
+      top: 0.5rem;
+      right: 0.75rem;
+      padding: 0.075rem 0.75rem;
+      gap: 0.3rem;
+      border-radius: 1.25rem;
+      font-size: 0.8rem;
+      border-width: 1.5px;
+    }
+}

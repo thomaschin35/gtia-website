@@ -84,9 +84,6 @@ const HeroSection = () => {
             Learn more <img src="/assets/images/arrow-down.svg" alt="Arrow Down" style={{ height: "1.5em", verticalAlign: "middle" }} />
           </a>
         </div>
-        <div className="thomas">
-          <h1> Thomas </h1>
-        </div>
       </Container>
     </section>
   );
