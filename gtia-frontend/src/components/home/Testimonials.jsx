@@ -8,14 +8,14 @@ const nemoAvatar = "/assets/images/nemo.png";
 
 const testimonialsData = [
   {
-    avatar: nemoAvatar,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "Nemo, Class of 2025",
+    avatar: "/assets/images/people/Liam-Van-den-Bogert.jpg",
+    text: "I've found some of my closest friends in GTIA, and I'm inspired everyday by the all the motivated, friendly, and multicultural members of the club. Being part of GTIA not only makes you more culturally aware, but also inspires you to branch out and connect with people who grew up in a completely different part of the world.",
+    name: "Liam, Class of 2025",
   },
   {
-    avatar: nemoAvatar,
-    text: "This is another great testimonial from someone else who really enjoyed their time with GTIA. It was a wonderful experience that I'll never forget.",
-    name: "Momo, Class of 2026",
+    avatar: "/assets/images/people/Marie-Wibisana.jpg",
+    text: "I am very grateful that I discovered and joined GTIA in my first semester freshman year. As a rather shy international student who has never really been in the U.S., I met so many cool friends who offer different backgrounds and perspectives! I understand that it is not easy to move from across the world here; being an ambassador fulfills me because I get to help build welcoming friendly environments for new international students. I also expanded my soft skills through being current President and Former VP Marketing!",
+    name: "Marie, Class of 2027",
   },
   {
     avatar: nemoAvatar,
