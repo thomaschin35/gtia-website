@@ -3,24 +3,26 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import TestimonialCard from "./TestimonialCard";
 
-
-const nemoAvatar = "/assets/images/nemo.png";
-
 const testimonialsData = [
   {
     avatar: "/assets/images/people/Liam-Van-den-Bogert.jpg",
     text: "I've found some of my closest friends in GTIA, and I'm inspired everyday by the all the motivated, friendly, and multicultural members of the club. Being part of GTIA not only makes you more culturally aware, but also inspires you to branch out and connect with people who grew up in a completely different part of the world.",
-    name: "Liam, Class of 2025",
+    name: "Liam Van den Bogert, Class of 2025",
   },
   {
-    avatar: "/assets/images/people/Marie-Wibisana.jpg",
+    avatar: "/assets/images/people/Marie-LinkedIn.jpg",
     text: "I am very grateful that I discovered and joined GTIA in my first semester freshman year. As a rather shy international student who has never really been in the U.S., I met so many cool friends who offer different backgrounds and perspectives! I understand that it is not easy to move from across the world here; being an ambassador fulfills me because I get to help build welcoming friendly environments for new international students. I also expanded my soft skills through being current President and Former VP Marketing!",
-    name: "Marie, Class of 2027",
+    name: "Marie Wibisana, Class of 2027",
   },
   {
-    avatar: nemoAvatar,
-    text: "A third testimonial to show how the carousel works. GTIA is the best club on campus for international students and ambassadors alike!",
-    name: "Dori, Class of 2027",
+    avatar: "/assets/images/people/Lorenzo-Niat.jpeg",
+    text: "Even though I haven’t been part of GTIA for very long, I’ve already found a community that supports me and lifts me up. I’m so glad I decided to join - they know how to work hard and still have fun while doing it!",
+    name: "Lorenzo Niat, Class of 2029",
+  },
+  {
+    avatar: "/assets/images/people/Victory-Ladipo.jpeg",
+    text: "GTIA is a fun and enriching experience. Here I was able to meet and befriend lots of people from different parts of the world both Domestic and International students. Here you can grow socially, professionally, and through cultural enrichment.",
+    name: "Victory Ladipo, Class of 2026",
   },
 ];
 

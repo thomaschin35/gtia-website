@@ -4,21 +4,54 @@ import * as THREE from "three";
 
 const markers = [
   {
-    lat: 40.7128,
-    lng: -74.006,
-    imageUrl: "/assets/images/nemo.png",
-    name: "Alice",
-    city: "New York",
+    lat: 41.8832,
+    lng: -87.6324,
+    imageUrl: "/assets/images/people/Liam-Van-den-Bogert.jpg",
+    name: "Liam Van den Bogert",
+    city: "Chicago",
     country: "USA",
   },
   {
-    lat: 51.5074,
-    lng: -0.1278,
-    imageUrl: "/assets/images/nemo.png",
-    name: "Bob",
-    city: "London",
-    country: "UK",
+    lat: -6.1944,
+    lng: 106.8229,
+    imageUrl: "/assets/images/people/Marie-Wibisana.jpg",
+    name: "Marie Wibisana",
+    city: "Jakarta",
+    country: "Indonesia",
   },
+  {
+    lat: 34.51,
+    lng: -93.05,
+    imageUrl: "/assets/images/people/Sneh-Patel.jpg",
+    name: "Sneh Patel",
+    city: "Hot Springs",
+    country: "USA",
+  },
+  {
+    lat: 6.6137,
+    lng: 3.3553,
+    imageUrl: "/assets/images/people/Lorenzo-Niat.jpeg",
+    name: "Lorenza Niat",
+    city: "Lagos",
+    country: "Nigeria",
+  },
+  {
+    lat: 3.1319,
+    lng: 101.6841,
+    imageUrl: "/assets/images/people/Thomas-Chin.png",
+    name: "Thomas Chin",
+    city: "Kuala Lumpur",
+    country: "Malaysia",
+  },
+  {
+    lat: 6.6137,
+    lng: 3.3553,
+    imageUrl: "/assets/images/people/Victory-Ladipo.jpeg",
+    name: "Victory Ladipo",
+    city: "Lagos",
+    country: "Nigeria",
+  },
+  
 ];
 
 const GlobeComponent = () => {
