@@ -248,8 +248,9 @@ main {
 .events-testimonials-desktop-spacing {
   @media (min-width: 769px) {
     padding-top: 6rem;
-    margin-bottom: 4rem;
-    min-height: calc(100vh - 2rem);
+    margin-bottom: 8rem;
+    //min-height: calc(100vh - 2rem);
+    min-height: 120vh;
   }
 }
 
