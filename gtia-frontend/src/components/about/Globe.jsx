@@ -51,6 +51,22 @@ const markers = [
     city: "Lagos",
     country: "Nigeria",
   },
+  {
+    lat: 36.1156,
+    lng: -97.0584,
+    imageUrl: "/assets/images/people/Michelle-Park.jpeg",
+    name: "Michelle Park",
+    city: "Stillwater",
+    country: "USA",
+  },
+  {
+    lat: 38.9121,
+    lng: -77.4986,
+    imageUrl: "/assets/images/people/Jocelyn-Chang.jpeg",
+    name: "Jocelyn Chang",
+    city: "South Riding",
+    country: "USA",
+  },
   
 ];
 

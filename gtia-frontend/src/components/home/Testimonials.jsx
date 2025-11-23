@@ -24,6 +24,11 @@ const testimonialsData = [
     text: "GTIA is a fun and enriching experience. Here I was able to meet and befriend lots of people from different parts of the world both Domestic and International students. Here you can grow socially, professionally, and through cultural enrichment.",
     name: "Victory Ladipo, Class of 2026",
   },
+  {
+    avatar: "/assets/images/people/Michelle-Park.jpeg",
+    text: "GTIA has been very rewarding because I get to interact with many diverse and welcoming people every week. My favorite memory so far has been helping with my first Night Market! It was definitely very busy, but everyone contributing made it worth it!",
+    name: "Michelle Park, Class of 2027",
+  },
 ];
 
 const Testimonials = () => {
