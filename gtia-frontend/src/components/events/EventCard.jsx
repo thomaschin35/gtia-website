@@ -8,7 +8,6 @@ const EventCard = ({ title, date, image, subtitle, description }) => {
           <img src={image} alt={title} />
         </div>
         <div className="event-card-content">
-          {/* NEED TO FIX THE POSITIONING OF THE DATE BADGE */}
           <div className="event-card-text">
             <div className="event-date-badge-epage mb-3">
               <span className="event-date-icon">

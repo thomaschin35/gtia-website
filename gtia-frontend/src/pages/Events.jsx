@@ -30,9 +30,9 @@ const Events = () => {
       <Header />
       <EventIntro />
       <div className="event-carousels-container">
-        <EventCarousel id="annual-events" title="🌍 Take a look at our annual events!" events={annualEvents} />
-        <EventCarousel id="workshop-events" title="💡 Check out our workshop events!" events={annualEvents} />
-        <EventCarousel id="internal-events" title="🎉 Check out our internal events!" events={annualEvents} />
+        <EventCarousel id="annual-events" title="🌍 Annual Events!" events={annualEvents} />
+        <EventCarousel id="workshop-events" title="💡 Workshop Events!" events={annualEvents} />
+        <EventCarousel id="internal-events" title="🎉 Internal Events!" events={annualEvents} />
       </div>
       <Footer />
     </div>
