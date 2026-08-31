@@ -1,35 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Events', href: '/events' },
+  { name: 'Guide', href: '/guide' },
+  { name: 'Resources', href: '/resources' },
+];
 
 const Header = () => {
+  const [navOpen, setNavOpen] = useState(false);
+  const currentPath = window.location.pathname;
+
   return (
-    <header className="navbar navbar-expand-lg navbar-dark">
-      <div className="container">
-        <a className="navbar-brand" href="/">GTIA</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
+    <header className="custom-navbar">
+      <div className="navbar-inner">
+        {/* Logo */}
+        <a className="navbar-logo-link" href="/">
+          <img src="/assets/images/gtia-gold-logo.png" alt="GTIA Logo" className="navbar-logo" height={40} />
+        </a>
+        {/* Hamburger for mobile */}
+        <button className="navbar-hamburger" onClick={() => setNavOpen(!navOpen)} aria-label="Toggle navigation">
+          <span className="navbar-hamburger-bar"></span>
+          <span className="navbar-hamburger-bar"></span>
+          <span className="navbar-hamburger-bar"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="/">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/events">Events</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/guide">Guide</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/resources">Resources</a>
-            </li>
-            <li className="nav-item">
-              <a className="btn btn-primary ms-2" href="/join">JOIN US</a>
+        {/* Nav Items */}
+        <nav className={`navbar-nav-section${navOpen ? ' open' : ''}`}>
+          <ul className="navbar-nav-list">
+            {navItems.map((item) => (
+              <li key={item.name} className="navbar-nav-item">
+                <a
+                  href={item.href}
+                  className={`navbar-nav-link${currentPath === item.href ? ' active' : ''}`}
+                  onClick={() => setNavOpen(false)}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+            <li className="navbar-nav-item">
+              <a href="/join" className="join-us-btn" onClick={() => setNavOpen(false)}>
+                JOIN US
+              </a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
   );
