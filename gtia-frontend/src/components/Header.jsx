@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
 const navItems = [
-  { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'Events', href: '/events' },
-  { name: 'Guide', href: '/guide' },
   { name: 'Resources', href: '/resources' },
 ];
 

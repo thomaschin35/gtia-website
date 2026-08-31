@@ -2,36 +2,36 @@
   "name": "gtia-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.6",
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "keen-slider": "^6.8.6",
+    "lucide-react": "^1.37.0",
+    "motion": "^13.1.1",
     "postcss-initial": "^4.0.1",
+    "radix-ui": "^1.6.7",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
-    "react-globe.gl": "^2.34.0",
     "react-router-dom": "^7.6.2",
-    "react-scripts": "5.0.1",
     "sass": "^1.89.2",
-    "three": "^0.178.0",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
@@ -46,7 +46,9 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
     "source-map-explorer": "^2.5.3",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "vite": "^8.2.2"
   }
 }

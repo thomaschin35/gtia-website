@@ -71,11 +71,6 @@ const Mission = () => {
             </div>
           </div>
         </div>
-        <div className="mission-bottom">
-          <p className="mission-tagline">
-            "Bringing <span className="quote-light-gold-letter">Georgia Tech</span> to the world and the <span className="quote-light-gold-letter">world</span> to Georgia Tech"
-          </p>
-        </div>
       </div>
     </section>
   );

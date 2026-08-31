@@ -1,33 +1,10 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import PlanePathAnimation from "./PlaneAnimation";
+import { Container, Row, Col } from "react-bootstrap";
 
 const HeroSection = () => {
-
-  const handleLearnMoreClick = (e) => {
-    e.preventDefault();
-    const upcomingEventsElement = document.getElementById('upcoming-events');
-    if (upcomingEventsElement) {
-      upcomingEventsElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
     <section className="hero-section py-3 py-md-5">
       <Container fluid className="position-relative">
-        <PlanePathAnimation />
-        {/* Desktop quote - top part */}
-        <div className="hero-quote-container d-none d-md-block">
-          <div className="hero-quote-top">
-            <h2 className="quote-text quote-background-left">
-              "Bringing <span className="quote-gold-letter">Georgia Tech</span> to the world..."
-            </h2>
-          </div>
-        </div>
-
         <Row className="justify-content-center py-3 py-md-5">
           <Col xs={12} md={10} lg={8}>
             <div className="d-flex justify-content-center position-relative">
@@ -54,43 +31,8 @@ const HeroSection = () => {
                 </Col>
               </Row>
             </div>
-
-            {/* Mobile quote - full text below title */}
-            <div className="d-block d-md-none mt-4">
-              <div className="d-flex justify-content-center">
-                <h2 className="quote-text quote-background-mobile">
-                  "Bringing <span className="quote-gold-letter">Georgia Tech</span> to the world and the <span className="quote-gold-letter">world</span> to Georgia Tech."
-                </h2>
-              </div>
-            </div>
-
-            <div className="d-flex justify-content-center mt-3 mt-md-4 gap-3 gap-md-5">
-             <a href="#" className="hero-nav-link d-flex align-items-center px-1">
-                <img src="/assets/images/guide-icon.svg" alt="Guide Icon"></img>
-                <span className="px-2">
-                  Guide
-                </span>
-              </a>
-              <a href="#" className="hero-nav-link d-flex align-items-center px-1">
-                <img src="/assets/images/discord-icon.svg" alt="Discord Icon"></img>
-                <span className="px-2">
-                  Discord
-                </span>
-              </a>
-            </div>
           </Col>
         </Row>
-
-        <div className="hero-quote-bottom">
-          <h2 className="quote-text quote-background-right">
-            ... and the <span className="quote-gold-letter">world</span> to Georgia Tech."
-          </h2>
-        </div>
-        <div className="text-center mt-3 mt-md-5">
-          <a href="#upcoming-events" className="btn btn-link learn-more-button" onClick={handleLearnMoreClick}>
-            Learn more <img src="/assets/images/arrow-down.svg" alt="Arrow Down" style={{ height: "1.5em", verticalAlign: "middle" }} />
-          </a>
-        </div>
       </Container>
     </section>
   );

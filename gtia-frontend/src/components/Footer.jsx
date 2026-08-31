@@ -34,7 +34,6 @@ const Footer = () => {
             <div className="col">
               <div className="footer-link-col">
                 <div className="footer-link-title">Resources</div>
-                <a href="#" className="footer-link">Interactive Guide</a>
                 <a href="#" className="footer-link">Transition to ATL</a>
                 <a href="#" className="footer-link">Academic Resources</a>
                 <a href="#" className="footer-link">Career Resources</a>
