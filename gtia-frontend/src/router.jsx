@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
+const HomeV2 = lazy(() => import("./pages/HomeV2"));
 const About = lazy(() => import("./pages/About"));
 const Events = lazy(() => import("./pages/Events"));
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: withSuspense(Home),
+  },
+  {
+    path: "/v2",
+    element: withSuspense(HomeV2),
   },
   {
     path: "/about",

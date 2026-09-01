@@ -1,3 +1,9 @@
+/* Declare layer order up front so Bootstrap (imported into the `bootstrap`
+   layer in global.scss) sits above Tailwind's preflight/base but below
+   Tailwind utilities. Result: existing Bootstrap pages are unaffected, while
+   Tailwind utilities always win over Bootstrap. */
+@layer theme, base, bootstrap, components, utilities;
+
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -68,4 +74,33 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+}
+
+/* GTIA brand tokens — mirrors src/styles/variables.scss and the Paper design.
+   Same CSS-var names as the Paper file so design translation is near 1:1. */
+@theme {
+  --font-sans: "Outfit", sans-serif;
+
+  --color-ink: #01324b;
+  --color-ink-soft: #3a5a70;
+  --color-gold: #cbac4d;
+  --color-gt-gold: #b3a369;
+  --color-blue: #93d5f6;
+  --color-blue-100: #ceefff;
+  --color-blue-50: #e4f6ff;
+  --color-blue-25: #f1faff;
+  --color-white: #fbfeff;
+  --color-night: #252829;
+  --color-grey: #a9b1b5;
+  --color-line: #dde8ef;
+
+  --text-display: 64px;
+  --text-h1: 44px;
+  --text-h2: 36px;
+  --text-h3: 22px;
+  --text-body: 18px;
+  --text-small: 14px;
+  --text-label: 13px;
+
+  --radius-pill: 999px;
 }
