@@ -1,90 +1,138 @@
-import React, { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import EventCard from "./EventCard";
+import EventCard from "../home/EventCard";
+import { cn } from "@/lib/utils";
 
-// Event Carousel component needs to take in id, title, and events, events should an array where each event has these: Title, Event title, event subttle, event description, event image, and event date
-
-const EventCarousel = ({ id, title, events }) => {
-  // TAKEN FROM KEEN SLIDER DOCUMENTATION
+/**
+ * Event carousel — Paper Events section chrome + existing keen-slider.
+ * Header-row arrows (not overlay); 1 / 2 / 3 cards per view.
+ */
+const EventCarousel = ({
+  id,
+  eyebrow,
+  title,
+  events,
+  className = "bg-white",
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-  });
+  const [maxIdx, setMaxIdx] = useState(() => Math.max(events.length - 1, 0));
+
+  // Options must be referentially stable — a new object each render
+  // makes keen-slider re-init and snaps back to slide 0.
+  const sliderOptions = useMemo(
+    () => ({
+      initial: 0,
+      rubberband: false,
+      slides: { perView: 1, spacing: 28 },
+      breakpoints: {
+        "(min-width: 768px)": {
+          slides: { perView: 2, spacing: 28 },
+        },
+        "(min-width: 1024px)": {
+          slides: { perView: 3, spacing: 28 },
+        },
+      },
+      slideChanged(slider) {
+        setCurrentSlide(slider.track.details.rel);
+      },
+    }),
+    []
+  );
+
+  const [sliderRef, instanceRef] = useKeenSlider(sliderOptions);
+
+  // keen-slider's first layout can miss slide widths; refresh once mounted.
+  useEffect(() => {
+    const slider = instanceRef.current;
+    if (!slider) return;
+    slider.update();
+    setMaxIdx(slider.track.details.maxIdx);
+  }, []);
+
+  const showArrows = maxIdx > 0;
 
   return (
-    <div className="event-carousel py-4 py-md-5" id={id}>
-    <div className="section-title-text mb-4">{title}</div>
+    <section id={id} className={cn("w-full scroll-mt-28", className)}>
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-14 px-8 py-[104px] md:px-16">
+        <div className="flex w-full max-w-[1256px] items-center justify-between gap-3.5">
+          <div className="flex min-w-0 flex-col items-start gap-3.5 text-left">
+            <span className="font-sans text-small font-semibold leading-[18px] tracking-[0.14em] text-gt-gold">
+              {eyebrow}
+            </span>
+            <h2 className="m-0 font-sans text-[32px] font-bold tracking-[-0.01em] text-ink sm:text-h1 sm:leading-[54px]">
+              {title}
+            </h2>
+          </div>
 
-      <div className="event-carousel-container">
-        <div className="navigation-wrapper">
+          {showArrows && (
+            <div className="flex shrink-0 items-center gap-2.5">
+              <Arrow
+                direction="prev"
+                disabled={currentSlide === 0}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  instanceRef.current?.prev();
+                }}
+              />
+              <Arrow
+                direction="next"
+                disabled={currentSlide === maxIdx}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  instanceRef.current?.next();
+                }}
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="w-full max-w-[1256px] overflow-hidden">
           <div ref={sliderRef} className="keen-slider">
-            {events.map((event, index) => (
-              <div className="keen-slider__slide" key={index}>
-                <EventCard
-                  title={event.title}
-                  date={event.date}
-                  image={event.image}
-                  subtitle={event.subtitle}
-                  description={event.description}
-                />
+            {events.map((event) => (
+              <div className="keen-slider__slide min-w-0" key={event.id}>
+                <EventCard {...event} className="h-full w-full max-w-none" />
               </div>
             ))}
           </div>
-          {loaded && instanceRef.current && (
-            <>
-              <Arrow
-                left
-                onClick={(e) =>
-                  e.stopPropagation() || instanceRef.current?.prev()
-                }
-                disabled={currentSlide === 0}
-              />
-
-              <Arrow
-                onClick={(e) =>
-                  e.stopPropagation() || instanceRef.current?.next()
-                }
-                disabled={
-                  currentSlide ===
-                  instanceRef.current.track.details.slides.length - 1
-                }
-              />
-            </>
-          )}
         </div>
       </div>
-
-      {/* <h3>{eventTitle}</h3> */}
-    </div>
+    </section>
   );
 };
 
-function Arrow(props) {
-  const disabled = props.disabled ? " arrow--disabled" : "";
+function Arrow({ direction, disabled, onClick }) {
+  const isPrev = direction === "prev";
+
   return (
-    <svg
-      onClick={props.onClick}
-      className={`arrow ${
-        props.left ? "arrow--left" : "arrow--right"
-      } ${disabled}`}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={isPrev ? "Previous events" : "Next events"}
+      className={cn(
+        "flex size-11 shrink-0 items-center justify-center rounded-pill border border-solid transition-opacity",
+        isPrev ? "border-line bg-white" : "border-ink bg-ink",
+        disabled && "cursor-not-allowed opacity-40"
+      )}
     >
-      {props.left && (
-        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-      )}
-      {!props.left && (
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      )}
-    </svg>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+        className="shrink-0"
+      >
+        <path
+          d={isPrev ? "M10 3L5 8l5 5" : "M6 3l5 5-5 5"}
+          stroke={isPrev ? "var(--color-ink)" : "var(--color-white)"}
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
   );
 }
 

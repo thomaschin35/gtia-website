@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // Placeholder globe (served from public/). Swap this file to update the hero art.
-const GLOBE_SRC = "/assets/images/home/globe-placeholder.png";
+const GLOBE_SRC = "/assets/images/home/globe.PNG";
 
 /**
  * Hero — from Paper "GTIA Homepage — Desktop" / Hero (D-0).
@@ -11,13 +11,14 @@ const GLOBE_SRC = "/assets/images/home/globe-placeholder.png";
 const Hero = () => {
   return (
     <section
-      className="hero-v2 relative w-full overflow-hidden"
+      id="hero"
+      className="hero relative w-full overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(180deg, var(--color-blue-25) 0%, var(--color-white) 100%)",
       }}
     >
-      <div className="relative mx-auto flex min-h-[660px] w-full max-w-[1440px] items-center px-8 pt-[150px] pb-[110px] md:px-16">
+      <div className="relative mx-auto flex min-h-[760px] w-full max-w-[1440px] items-center px-8 pt-[150px] pb-[110px] md:px-16">
         {/* Fixed-width copy column — forces headline wrap like Paper (560px) */}
         <div className="relative z-10 box-border flex w-[min(560px,100%)] min-w-0 shrink-0 flex-col items-start gap-8 text-left">
           <div className="flex items-center gap-2.5">
@@ -60,18 +61,14 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Pinned to the right — tracks viewport resize (Paper: ~16px from right edge) */}
+        {/* Pinned to the right; oversized so it bleeds off the top/right edge */}
         <div
           role="img"
           aria-label="Illustrated globe representing GTIA's international community"
-          className="pointer-events-none absolute -top-10 right-4 size-[min(660px,55vw)] rounded-pill lg:size-[660px]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle farthest-corner at 38% 32%, var(--color-blue-50) 0%, var(--color-blue-100) 55%, var(--color-blue) 100%)",
-          }}
+          className="pointer-events-none absolute -top-24 -right-20 size-[min(920px,78vw)] lg:size-[850px]"
         >
           <div
-            className="absolute inset-5 rounded-pill bg-cover bg-center"
+            className="absolute inset-0 bg-contain bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${GLOBE_SRC})` }}
           />
         </div>

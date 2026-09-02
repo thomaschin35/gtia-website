@@ -1,75 +1,49 @@
-import React from "react";
+import { missionCards } from "./missionData";
 
+/**
+ * Our Mission — from Paper "GTIA About — Desktop" / Our Mission.
+ */
 const Mission = () => {
   return (
-    <section className="mission-section" id="mission">
-      <div className="mission-container">
-        <div className="mission-content">
-          <div className="mission-header">
-            <h1 className="mission-title">Our Mission</h1>
-            <div className="mission-cards">
-              <div className="mission-card">
-                <div className="card-top">
-                  <img
-                    src="/assets/images/about/mission-support.svg"
-                    alt="Guide"
-                    className="card-icon"
-                  />
-                  <div className="card-text">
-                    <h1 className="card-title">Support</h1>
-                    <p className="card-subtitle">International Students</p>
-                  </div>
-                </div>
-                <p className="card-description">
-                  We aim to support incoming international students in
-                  integrating with the Georgia Tech community, fostering their
-                  early personal growth, and promoting and enhancing the
-                  Institute’s diversity. <br />
-                </p>
-              </div>
+    <section id="mission" className="w-full scroll-mt-28 bg-blue-25">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-12 px-8 pt-[72px] pb-24 md:px-16">
+        <h2 className="m-0 text-center font-sans text-h2 font-bold leading-[44px] text-ink">
+          Our Mission
+        </h2>
 
-              <div className="mission-card">
-                <div className="card-top">
-                  <img
-                    src="/assets/images/about/mission-celebrate.svg"
-                    alt="Connect"
-                    className="card-icon"
-                  />
-                  <div className="card-text">
-                    <h1 className="card-title">Celebrate</h1>
-                    <p className="card-subtitle">Cultural Diversity</p>
-                  </div>
+        <div className="mission-cards w-full max-w-[1312px]">
+          {missionCards.map((card) => {
+            return (
+              <article
+                key={card.id}
+                className="flex min-h-[440px] flex-col items-center gap-4 rounded-[40px] bg-white px-7 pt-8 pb-10 shadow-[0_4px_10px_#0000000D]"
+              >
+                <div className="flex size-[88px] shrink-0 items-center justify-center rounded-pill">
+                  <img src={card.icon} alt={card.title} className="w-full h-full object-contain" />
                 </div>
-                <p className="card-description">
-                  We engage the general student body in events and activities
-                  that promote international culture and diversity, many of
-                  which are supported by the Office of International Education.
-                </p>
-              </div>
 
-              <div className="mission-card">
-                <div className="card-top">
-                  <img
-                    src="/assets/images/about/mission-enrich.svg"
-                    alt="Empower"
-                    className="card-icon"
-                  />
-                  <div className="card-text">
-                    <h1 className="card-title">Enrich</h1>
-                    <p className="card-subtitle">Member Experiences</p>
-                  </div>
+                <div className="flex flex-col items-center gap-1 text-center">
+                  <h3 className="m-0 font-sans text-[32px] font-bold leading-[38px] tracking-[-0.02em] text-ink">
+                    {card.title}
+                  </h3>
+                  <p className="m-0 font-sans text-[20px] font-semibold leading-6 text-ink">
+                    {card.subtitle}
+                  </p>
                 </div>
-                <p className="card-description">
-                  We aim to foster a culture that encourages our members to
-                  consider how they can support and advocate for Georgia Tech’s
-                  international community at large. <br />
-                  We continuously promote honest and sometimes difficult
-                  discussions, with the aim of broadening the perspectives of
-                  our members and increasing member engagement.
-                </p>
-              </div>
-            </div>
-          </div>
+
+                <div className="flex w-full max-w-[252px] flex-col gap-3">
+                  {card.description.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 32)}
+                      className="m-0 text-center font-sans text-[16px] font-normal leading-[22px] text-night"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

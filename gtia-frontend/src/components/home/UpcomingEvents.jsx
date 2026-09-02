@@ -1,44 +1,28 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import EventCarousel from "./EventCarousel";
-import DecorativePath from "./DecorativePath";
+import EventCard from "./EventCard";
+import { upcomingEvents } from "./eventsData";
 
+/**
+ * Upcoming Events — Paper Events section (1I-0): centered heading + 3-card row.
+ */
 const UpcomingEvents = () => {
-  // Sample event data, would be replaced with actual data from an API
-  const events = [
-    {
-      id: 1,
-      title: "Night Market",
-      date: "November 8, 2025",
-      image: "/placeholder.jpg",
-      description: "Lorem ipsum dolor sit amet...",
-    },
-    {
-      id: 2,
-      title: "Culture Fest",
-      date: "December 10, 2025",
-      image: "/placeholder.jpg",
-      description: "Lorem ipsum dolor sit amet...",
-    },
-    {
-      id: 3,
-      title: "Culture Fest",
-      date: "December 10, 2025",
-      image: "/placeholder.jpg",
-      description: "Lorem ipsum dolor sit amet...",
-    }
-  ];
-
   return (
-    <section id="upcoming-events" className="upcoming-events-viewport position-relative">
-      {/* Mobile decorative path - behind title */}
-      <DecorativePath className="decorative-path-mobile" />
-      <Container className="h-100 d-flex flex-column">
-        <div className="text-center mb-3 mb-md-4 section-title-text position-relative">Upcoming Events</div>
-        <div className="flex-grow-1 d-flex align-items-center">
-          <EventCarousel />
+    <section className="w-full bg-blue-25">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-14 px-8 py-[104px] md:px-16">
+        <div className="flex flex-col items-center gap-3.5 text-center">
+          <span className="font-sans text-small font-semibold leading-[18px] tracking-[0.14em] text-gt-gold">
+            WHAT'S HAPPENING
+          </span>
+          <h2 className="m-0 font-sans text-[32px] font-bold tracking-[-0.01em] text-ink sm:text-h1 sm:leading-[54px]">
+            Upcoming Events
+          </h2>
         </div>
-      </Container>
+
+        <div className="flex w-full flex-wrap items-stretch justify-center gap-7">
+          {upcomingEvents.map((event) => (
+            <EventCard key={event.id} {...event} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

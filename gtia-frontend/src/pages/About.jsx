@@ -1,23 +1,36 @@
-import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Mission from "../components/about/Mission";
-import Eboard from "../components/about/Eboard";
-import "../styles/about.scss";
-import Committee from "../components/about/Committee";
-import BackgroundBottom from "../components/about/BackgroundBottom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Nav, Footer } from "../components/home";
+import {
+  WhoWeAre,
+  Mission,
+  ExecutiveBoard,
+  Committees,
+} from "../components/about";
 
 const About = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hash]);
+
   return (
-    <div className="about-page">
-      <Header />
+    <div className="about min-h-screen bg-white font-sans text-ink">
+      <Nav />
+      <WhoWeAre />
       <Mission />
-      <div className="gradient-container">
-      <Eboard />
-      <Committee/>
-        <Footer />
-        <BackgroundBottom />
-      </div>
+      <ExecutiveBoard />
+      <Committees />
+      <Footer />
     </div>
   );
 };

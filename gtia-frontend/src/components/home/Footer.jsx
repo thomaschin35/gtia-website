@@ -68,9 +68,7 @@ const Footer = () => {
             className="flex items-center gap-2.5 no-underline"
             aria-label="GTIA home"
           >
-            <span className="flex size-[26px] shrink-0 items-center justify-center rounded-pill border-2 border-gold">
-              <span className="size-[11px] rounded-pill bg-gold" />
-            </span>
+            <img src="/assets/images/gtia-gold-logo.png" alt="GTIA Logo" className="size-[32px] object-contain" />
             <span className="font-sans text-[16px] font-bold leading-5 tracking-[0.04em] text-white">
               GTIA
             </span>

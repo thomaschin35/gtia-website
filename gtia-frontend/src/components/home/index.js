@@ -1,6 +1,4 @@
-// GTIA homepage redesign (v2) components.
-// Built from the Paper design "GTIA Homepage Redesign".
-// Barrel export — populated section by section in Phase 2.
+// GTIA homepage components (Paper "GTIA Homepage Redesign").
 
 export { default as Nav } from "./Nav";
 export { default as Hero } from "./Hero";

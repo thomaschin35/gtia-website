@@ -49,12 +49,11 @@ const Mission = () => {
           </Link>
         </div>
 
-        {/* Gradient panel — Tailwind utilities (reliable) instead of inline CSS vars */}
-        <div
-          className="block h-[240px] w-full shrink-0 rounded-[28px] bg-gradient-to-br from-blue-100 to-blue sm:h-[300px] lg:ml-auto lg:h-[360px] lg:w-[468px] lg:max-w-[468px]"
-          role="img"
-          aria-label="Mission visual placeholder"
-        />
+        <img
+            src="/assets/images/events/night-market.jpg"
+            alt="Night Market"
+            className="h-[240px] w-full shrink-0 rounded-[28px] object-cover sm:h-[300px] lg:ml-auto lg:h-[380px] lg:w-[620px] lg:max-w-[620px]"
+          />
       </div>
     </section>
   );

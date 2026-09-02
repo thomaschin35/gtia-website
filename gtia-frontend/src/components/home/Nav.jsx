@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navItems = [
-  { name: "ABOUT", href: "/about" },
+  { name: "ABOUT", href: "/about#who-we-are" },
   { name: "EVENTS", href: "/events" },
 ];
 
@@ -13,9 +13,9 @@ const Nav = () => {
   return (
     <header className="fixed inset-x-0 top-6 z-50 px-4 sm:px-8">
       <nav className="mx-auto flex max-w-[1376px] items-center justify-between rounded-pill border border-line bg-white/90 py-3.5 pl-7 pr-5 shadow-[0_12px_32px_#01324B1F] backdrop-blur-md">
-        <Link to="/" className="flex items-center gap-3 no-underline" aria-label="GTIA home">
-          <span className="flex size-[34px] shrink-0 items-center justify-center rounded-pill border-[2.5px] border-gold">
-            <span className="size-4 rounded-pill bg-gold" />
+        <Link to="/#hero" className="flex items-center gap-3 no-underline" aria-label="GTIA home">
+          <span className="flex size-[40px] shrink-0 items-center justify-center">
+            <img src="/assets/images/gtia-gold-logo.png" alt="GTIA Logo" className="w-full h-full object-contain" />
           </span>
           <span className="font-sans text-[24px] font-bold leading-[30px] tracking-[0.04em] text-ink">
             GTIA

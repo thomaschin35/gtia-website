@@ -1,103 +1,112 @@
-import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import TestimonialCard from "./TestimonialCard";
+import { testimonials } from "./testimonialsData";
 
+const autoplay = (slider) => {
+  let timeout;
+  let mouseOver = false;
 
-const nemoAvatar = "/assets/images/nemo.png";
+  const clearNextTimeout = () => {
+    clearTimeout(timeout);
+  };
 
-const testimonialsData = [
-  {
-    avatar: nemoAvatar,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "Nemo, Class of 2025",
-  },
-  {
-    avatar: nemoAvatar,
-    text: "This is another great testimonial from someone else who really enjoyed their time with GTIA. It was a wonderful experience that I'll never forget.",
-    name: "Momo, Class of 2026",
-  },
-  {
-    avatar: nemoAvatar,
-    text: "A third testimonial to show how the carousel works. GTIA is the best club on campus for international students and ambassadors alike!",
-    name: "Dori, Class of 2027",
-  },
-];
+  const nextTimeout = () => {
+    clearTimeout(timeout);
+    if (mouseOver) return;
+    timeout = setTimeout(() => {
+      slider.next();
+    }, 4000);
+  };
 
+  slider.on("created", () => {
+    slider.container.addEventListener("mouseover", () => {
+      mouseOver = true;
+      clearNextTimeout();
+    });
+    slider.container.addEventListener("mouseout", () => {
+      mouseOver = false;
+      nextTimeout();
+    });
+    nextTimeout();
+  });
+  slider.on("dragStarted", clearNextTimeout);
+  slider.on("animationEnded", nextTimeout);
+  slider.on("updated", nextTimeout);
+};
+
+/**
+ * Testimonials — Paper Testimonial section (2V-0).
+ * Eyebrow + quote mark stay static; quote + attribution auto-rotate.
+ */
 const Testimonials = () => {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
-      slides: {
-        perView: 1,
-        spacing: 15,
-      },
-      breakpoints: {
-        '(min-width: 768px)': {
-          slides: {
-            perView: 1,
-            spacing: 30,
-          },
-        },
-        '(min-width: 1200px)': {
-          slides: {
-            perView: 1,
-            spacing: 50,
-          },
-        },
-      },
+      slides: { perView: 1 },
     },
-    [
-      (slider) => {
-        let timeout;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 4000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
+    [autoplay]
   );
 
   return (
-    <section id="testimonials" className="testimonials-section testimonials-viewport">
-      <div className="container px-3 px-md-5 h-100 d-flex flex-column">
-        <div className="section-title-text text-center mb-3 mb-md-4">What They Say...</div>
-        <div className="flex-grow-1 d-flex align-items-center">
-          <div ref={sliderRef} className="keen-slider w-100">
-            {testimonialsData.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                avatar={testimonial.avatar}
-                text={testimonial.text}
-                name={testimonial.name}
-              />
-            ))}
-          </div>
+    <section className="w-full bg-white">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-9 px-8 py-[112px] md:px-16">
+        <span className="font-sans text-small font-semibold leading-[18px] tracking-[0.14em] text-gt-gold">
+          WHAT THEY SAY
+        </span>
+
+        <svg
+          width="46"
+          height="38"
+          viewBox="0 0 46 38"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          className="shrink-0"
+        >
+          <path
+            d="M0 38V22C0 9.85 7.4 1.6 19 0l2.4 7.2C14.6 9 11 13 11 18h7v20H0zm27 0V22C27 9.85 34.4 1.6 46 0l2.4 7.2C41.6 9 38 13 38 18h7v20H27z"
+            fill="var(--color-blue-100)"
+          />
+        </svg>
+
+        <div ref={sliderRef} className="keen-slider w-full max-w-[820px]">
+          {testimonials.map((item) => (
+            <div
+              key={item.id}
+              className="keen-slider__slide flex flex-col items-center gap-9"
+            >
+              <blockquote className="m-0 w-[min(820px,100%)] text-center font-sans text-[26px] font-semibold leading-[34px] tracking-[-0.01em] text-ink sm:text-[34px] sm:leading-[46px]">
+                {item.quote}
+              </blockquote>
+
+              <div className="flex items-center gap-3.5 pt-2">
+                {item.avatar ? (
+                  <img
+                    src={item.avatar}
+                    alt=""
+                    className="size-14 shrink-0 rounded-pill object-cover"
+                  />
+                ) : (
+                  <div
+                    className="size-14 shrink-0 rounded-pill bg-gradient-to-br from-gold to-gt-gold"
+                    aria-hidden="true"
+                  />
+                )}
+                <div className="flex flex-col gap-0.5 text-left">
+                  <span className="font-sans text-[17px] font-semibold leading-[22px] text-ink">
+                    {item.name}
+                  </span>
+                  <span className="font-sans text-small font-normal leading-[18px] text-grey">
+                    {item.meta}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default Testimonials; 
+export default Testimonials;

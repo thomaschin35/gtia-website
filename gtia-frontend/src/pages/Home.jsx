@@ -1,26 +1,15 @@
-import React from 'react';
-import Header from '../components/Header';
-import HeroSection from '../components/home/HeroSection';
-import UpcomingEvents from '../components/home/UpcomingEvents';
-import Testimonials from '../components/home/Testimonials';
-import Companies from '../components/home/Companies';
-import Sponsors from '../components/home/Sponsors';
-import Footer from '../components/Footer';
-import DecorativePath from '../components/home/DecorativePath';
+import { Nav, Hero, Mission, UpcomingEvents, Questions, Testimonials, Alumni, Footer } from "../components/home";
 
 const Home = () => {
   return (
-    <div className="home-page">
-      <Header />
-      <HeroSection />
-      <div className="events-testimonials-viewport events-testimonials-desktop-spacing position-relative">
-        {/* Desktop decorative path - behind event carousel */}
-        <DecorativePath className="decorative-path-desktop" />
-        <UpcomingEvents />
-        <Testimonials />
-      </div>
-      <Companies />
-      <Sponsors />
+    <div className="home min-h-screen bg-white font-sans text-ink">
+      <Nav />
+      <Hero />
+      <Mission />
+      <UpcomingEvents />
+      <Questions />
+      <Testimonials />
+      <Alumni />
       <Footer />
     </div>
   );
