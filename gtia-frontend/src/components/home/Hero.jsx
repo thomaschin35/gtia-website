@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 // Placeholder globe (served from public/). Swap this file to update the hero art.
-const GLOBE_SRC = "/assets/images/home/globe.PNG";
+const GLOBE_SRC = "/assets/images/home/globe1.png";
 
 /**
  * Hero — from Paper "GTIA Homepage — Desktop" / Hero (D-0).

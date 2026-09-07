@@ -1,5 +1,5 @@
 // Swap to a public/ path when the photo is ready.
-const IMAGE_SRC = "public/assets/images/about/about-us.jpeg";
+const IMAGE_SRC = "public/assets/images/about/about-us.JPG";
 
 /**
  * Who We Are — from Paper "GTIA About — Desktop" / Who We Are (64-0).
@@ -33,7 +33,7 @@ const WhoWeAre = () => {
           <img
             src={IMAGE_SRC}
             alt="Georgia Tech International Ambassadors community"
-            className="h-[240px] w-full shrink-0 rounded-[28px] object-cover sm:h-[300px] lg:ml-auto lg:h-[380px] lg:w-[620px] lg:max-w-[620px]"
+            className="h-[360px] w-full shrink-0 rounded-[28px] object-cover sm:h-[400px] lg:ml-auto lg:h-[500px] lg:w-[620px] lg:max-w-[620px]"
           />
         ) : (
           <div

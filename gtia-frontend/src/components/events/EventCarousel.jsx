@@ -14,6 +14,7 @@ const EventCarousel = ({
   title,
   events,
   className = "bg-white",
+  contentClassName,
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [maxIdx, setMaxIdx] = useState(() => Math.max(events.length - 1, 0));
@@ -54,7 +55,12 @@ const EventCarousel = ({
 
   return (
     <section id={id} className={cn("w-full scroll-mt-28", className)}>
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-14 px-8 py-[104px] md:px-16">
+      <div
+        className={cn(
+          "mx-auto flex w-full max-w-[1440px] flex-col items-center gap-14 px-8 py-[104px] md:px-16",
+          contentClassName
+        )}
+      >
         <div className="flex w-full max-w-[1256px] items-center justify-between gap-3.5">
           <div className="flex min-w-0 flex-col items-start gap-3.5 text-left">
             <span className="font-sans text-small font-semibold leading-[18px] tracking-[0.14em] text-gt-gold">

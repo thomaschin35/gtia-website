@@ -39,6 +39,7 @@ const Events = () => {
         title="Annual Events"
         events={annualEvents}
         className="bg-blue-25"
+        contentClassName="pt-10 pb-[104px]"
       />
       <EventCarousel
         id="workshop-events"
